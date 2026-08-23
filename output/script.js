@@ -13,7 +13,7 @@
   const clearMotionStyles = () => {
     document
       .querySelectorAll(
-        "[data-reveal], [data-tab-panel], [data-tab-panel] > *, #hero-monogram-art, .hero-copy, .hero-kicker, .profile-mark, .availability-badge, .social-link",
+        "[data-reveal], [data-tab-panel], [data-tab-panel] > *, #hero-artwork, .hero-portrait-badge, #hero-artwork img, .hero-copy, .profile-mark, .availability-badge, .social-link",
       )
       .forEach((element) => element.removeAttribute("style"));
   };
@@ -99,7 +99,7 @@
     const intro = window.gsap.timeline({ defaults: { ease: "expo.out" } });
     intro
       .from(".hero-copy", { opacity: 0, x: -32, duration: 0.7, clearProps: "opacity,transform" })
-      .from(".hero-kicker", { opacity: 0, y: 12, duration: 0.35, clearProps: "opacity,transform" }, "-=0.38")
+      .from("#hero-artwork", { opacity: 0, x: 24, duration: 0.55, clearProps: "opacity,transform" }, "-=0.48")
       .from(".profile-mark", { opacity: 0, scale: 0.82, rotate: -8, duration: 0.5, clearProps: "opacity,transform" }, "-=0.22")
       .from(".availability-badge", { opacity: 0, y: 10, duration: 0.3, clearProps: "opacity,transform" }, "-=0.24")
       .from(".social-link", { opacity: 0, x: 16, duration: 0.35, stagger: 0.06, clearProps: "opacity,transform" }, "-=0.3");
@@ -108,8 +108,8 @@
 
     if (window.ScrollTrigger) {
       window.gsap.registerPlugin(window.ScrollTrigger);
-      window.gsap.to("#hero-monogram-art", {
-        yPercent: 8,
+      window.gsap.to(".hero-portrait-badge", {
+        yPercent: 2,
         ease: "none",
         scrollTrigger: {
           trigger: ".hero-surface",
