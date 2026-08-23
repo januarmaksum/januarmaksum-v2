@@ -160,7 +160,7 @@ button:focus-visible {
   font-size: clamp(2rem, 10vw, 4rem);
   font-weight: 900;
   letter-spacing: -0.065em;
-  line-height: 0.86;
+  line-height: 1;
   /* text-transform: uppercase; */
 }
 
@@ -406,7 +406,7 @@ button:focus-visible {
   font-weight: 800;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  transition: background-color 150ms ease, color 150ms ease;
+  transition: box-shadow 150ms ease;
 }
 
 .section-link:nth-child(even) {
@@ -424,10 +424,9 @@ button:focus-visible {
   font-size: 0.65rem;
 }
 
-.section-link:hover,
+.section-link:not([aria-selected="true"]):hover,
 .section-link[aria-selected="true"] {
-  background: var(--ink);
-  color: var(--acid);
+  box-shadow: inset 0 -6px 0 var(--signal);
 }
 
 .page-section {
@@ -532,14 +531,15 @@ button:focus-visible {
 }
 
 .tech-line {
-  border-bottom: 2px solid var(--ink);
-  padding-bottom: 0.85rem;
+  margin-top: 1.1rem;
+  border-top: 2px solid var(--ink);
+  padding-top: 0.85rem;
   overflow-wrap: anywhere;
 }
 
 .experience-summary {
   max-width: 75ch;
-  margin: 1.1rem 0 0;
+  margin: 0;
   line-height: 1.65;
 }
 
