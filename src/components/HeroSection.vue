@@ -15,7 +15,7 @@ const iconPaths = {
 </script>
 
 <template>
-  <section class="relative isolate overflow-hidden border-b-2 border-[#111111] bg-[#f4f0e6]" aria-labelledby="hero-title">
+  <section class="relative isolate overflow-hidden border-b-2 border-[#111111] bg-[#F2ECE1]" aria-labelledby="hero-title">
     <div class="flex min-h-[clamp(35rem,72vw,42rem)] flex-col md:min-h-[clamp(34rem,56vw,42rem)] md:flex-row md:items-center lg:aspect-video lg:min-h-0">
       <div ref="heroCopy" data-motion="hero-copy" class="relative z-3 w-full min-w-0 px-[clamp(1.25rem,6vw,5rem)] py-[clamp(2.25rem,7vw,5.5rem)] md:w-3/5 md:px-[clamp(2.5rem,6vw,5rem)] md:py-[clamp(3rem,7vw,5.5rem)]">
         <p class="mb-[clamp(1.25rem,4vw,2rem)] flex items-center gap-3 font-mono text-[clamp(0.72rem,2.8vw,0.9rem)] font-extrabold uppercase leading-[1.2] tracking-[0.14em] text-[#c53a18]">
@@ -33,7 +33,7 @@ const iconPaths = {
           <li
             v-for="technology in technologies"
             :key="technology.name"
-            class="flex size-[clamp(2.7rem,12vw,3.15rem)] shrink-0 items-center justify-center border-2 border-[#111111] bg-[#f4f0e6] md:size-[clamp(2.85rem,4.5vw,3.25rem)]"
+            class="flex size-[clamp(2.7rem,12vw,3.15rem)] shrink-0 items-center justify-center border-2 border-[#111111] bg-[#F2ECE1] md:size-[clamp(2.85rem,4.5vw,3.25rem)]"
             :class="technology.classes"
           >
             <svg class="size-[56%] shrink-0 fill-current" viewBox="0 0 24 24" aria-hidden="true">

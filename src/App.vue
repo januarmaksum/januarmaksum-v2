@@ -38,7 +38,7 @@ usePortfolioMotion(root, activeTab)
     <AmbientWaves />
     <a class="fixed left-4 top-4 z-50 translate-y-[-200%] touch-manipulation border-2 border-[#111111] bg-[#e8ff3f] px-4 py-3 font-extrabold text-[#111111] focus:translate-y-0 focus-visible:outline-4 focus-visible:outline-offset-[3px] focus-visible:outline-blue-600 motion-reduce:transition-none" href="#main-content">Skip to main content</a>
 
-    <div class="relative z-10 mx-auto min-h-[calc(100dvh-(clamp(10px,2.5vw,40px)*2))] w-full max-w-300 overflow-clip border-2 border-[#111111] bg-[#f4f0e6] shadow-[clamp(6px,1vw,12px)_clamp(6px,1vw,12px)_0_#ff5c35]">
+    <div class="relative z-10 mx-auto min-h-[calc(100dvh-(clamp(10px,2.5vw,40px)*2))] w-full max-w-300 overflow-clip border-2 border-[#111111] bg-[#F2ECE1] shadow-[clamp(6px,1vw,12px)_clamp(6px,1vw,12px)_0_#ff5c35]">
       <header id="profile">
         <HeroSection :technologies="technologies" />
         <ProfileOverview :availability-modes="availabilityModes" :social-links="socialLinks" />

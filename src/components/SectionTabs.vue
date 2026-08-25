@@ -32,7 +32,7 @@ function handleKeydown(event, index) {
 </script>
 
 <template>
-  <div class="border-y-2 border-black bg-[#f4f0e6] shadow-[0_5px_0_rgba(0,0,0,0.18)]">
+  <div class="border-y-2 border-black bg-[#F2ECE1] shadow-[0_5px_0_rgba(0,0,0,0.18)]">
     <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6" role="tablist" aria-label="Résumé sections">
       <button
         v-for="(tab, index) in tabs"
@@ -41,7 +41,7 @@ function handleKeydown(event, index) {
         :ref="(element) => { if (element) tabElements[index] = element }"
         type="button"
         role="tab"
-        class="inline-flex min-h-14 w-full min-w-0 touch-manipulation cursor-pointer items-center justify-center gap-2 border-b-2 border-r-2 border-[#111111] bg-[#f4f0e6] px-4 py-[0.8rem] text-[0.78rem] font-extrabold uppercase tracking-[0.04em] text-[#111111] transition-shadow duration-150 ease-[ease] even:border-r-0 nth-[n+5]:border-b-0 [&[aria-selected=false]:hover]:[box-shadow:inset_0_-6px_0_#ff5c35] aria-selected:[box-shadow:inset_0_-6px_0_#ff5c35] focus-visible:z-10 focus-visible:outline-4 focus-visible:outline-offset-[-6px] focus-visible:outline-blue-600 md:min-h-15 md:even:border-r-2 md:nth-[3n]:border-r-0 md:nth-[n+4]:border-b-0 lg:border-b-0 lg:border-r-2 lg:nth-[3n]:border-r-2 lg:last:border-r-0 motion-reduce:duration-[0.01ms]"
+        class="inline-flex min-h-14 w-full min-w-0 touch-manipulation cursor-pointer items-center justify-center gap-2 border-b-2 border-r-2 border-[#111111] bg-[#F2ECE1] px-4 py-[0.8rem] text-[0.78rem] font-extrabold uppercase tracking-[0.04em] text-[#111111] transition-shadow duration-150 ease-[ease] even:border-r-0 nth-[n+5]:border-b-0 [&[aria-selected=false]:hover]:[box-shadow:inset_0_-6px_0_#ff5c35] aria-selected:[box-shadow:inset_0_-6px_0_#ff5c35] focus-visible:z-10 focus-visible:outline-4 focus-visible:outline-offset-[-6px] focus-visible:outline-blue-600 md:min-h-15 md:even:border-r-2 md:nth-[3n]:border-r-0 md:nth-[n+4]:border-b-0 lg:border-b-0 lg:border-r-2 lg:nth-[3n]:border-r-2 lg:last:border-r-0 motion-reduce:duration-[0.01ms]"
         :aria-selected="modelValue === tab.id"
         :aria-controls="tab.id"
         :tabindex="modelValue === tab.id ? 0 : -1"

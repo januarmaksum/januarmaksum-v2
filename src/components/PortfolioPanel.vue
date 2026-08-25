@@ -231,7 +231,7 @@ onBeforeUnmount(() => {
             <p class="mt-4 line-clamp-3 leading-[1.6] text-[#67645d]">{{ portfolio.description }}</p>
 
             <ul class="mt-5 flex list-none flex-wrap gap-1.5" :aria-label="`Technologies used for ${portfolio.title}`">
-              <li v-for="technology in portfolio.technologies.slice(0, 3)" :key="technology" class="border border-[#111111] bg-[#f4f0e6] px-2 py-1 font-mono text-[0.62rem] font-extrabold uppercase tracking-[0.04em]">
+              <li v-for="technology in portfolio.technologies.slice(0, 3)" :key="technology" class="border border-[#111111] bg-[#F2ECE1] px-2 py-1 font-mono text-[0.62rem] font-extrabold uppercase tracking-[0.04em]">
                 {{ technology }}
               </li>
               <li v-if="portfolio.technologies.length > 3" class="border border-[#111111] bg-[#e8ff3f] px-2 py-1 font-mono text-[0.62rem] font-extrabold uppercase tracking-[0.04em]" :aria-label="`${portfolio.technologies.length - 3} more technologies`">
@@ -256,7 +256,7 @@ onBeforeUnmount(() => {
 
       <DialogPortal v-if="selectedPortfolio">
         <DialogOverlay class="fixed inset-0 z-80 bg-black/75" />
-        <DialogContent class="fixed left-1/2 top-1/2 z-90 max-h-[calc(100dvh-2rem)] w-[calc(100%-2rem)] max-w-6xl -translate-x-1/2 -translate-y-1/2 overflow-y-auto overscroll-contain border-2 border-[#111111] bg-[#f4f0e6] [box-shadow:8px_8px_0_#111111] focus-visible:outline-4 focus-visible:outline-offset-[3px] focus-visible:outline-blue-600 sm:w-[calc(100%-3rem)] md:max-h-[calc(100dvh-3rem)]" @close-auto-focus="handleCloseAutoFocus">
+        <DialogContent class="fixed left-1/2 top-1/2 z-90 max-h-[calc(100dvh-2rem)] w-[calc(100%-2rem)] max-w-6xl -translate-x-1/2 -translate-y-1/2 overflow-y-auto overscroll-contain border-2 border-[#111111] bg-[#F2ECE1] [box-shadow:8px_8px_0_#111111] focus-visible:outline-4 focus-visible:outline-offset-[3px] focus-visible:outline-blue-600 sm:w-[calc(100%-3rem)] md:max-h-[calc(100dvh-3rem)]" @close-auto-focus="handleCloseAutoFocus">
           <DialogClose class="absolute right-3 top-3 z-10 inline-flex size-12 touch-manipulation cursor-pointer items-center justify-center border-2 border-[#111111] bg-[#e8ff3f] text-[#111111] [box-shadow:4px_4px_0_#111111] transition-[background-color,color,box-shadow,transform] duration-160 hover:bg-[#111111] hover:text-[#e8ff3f] active:[box-shadow:none] active:transform-[translate(3px,3px)] focus-visible:outline-4 focus-visible:outline-offset-[3px] focus-visible:outline-blue-600 motion-reduce:duration-[0.01ms]" aria-label="Close project details">
             <X class="size-6" :stroke-width="2.5" aria-hidden="true" />
           </DialogClose>
