@@ -6,6 +6,7 @@ import CertificationsPanel from '@/components/CertificationsPanel.vue'
 import EducationPanel from '@/components/EducationPanel.vue'
 import ExperiencePanel from '@/components/ExperiencePanel.vue'
 import HeroSection from '@/components/HeroSection.vue'
+import PortfolioPanel from '@/components/PortfolioPanel.vue'
 import ProfileOverview from '@/components/ProfileOverview.vue'
 import SectionTabs from '@/components/SectionTabs.vue'
 import SkillsPanel from '@/components/SkillsPanel.vue'
@@ -17,6 +18,7 @@ import {
   education,
   experiences,
   languages,
+  portfolios,
   skills,
   socialLinks,
   tabs,
@@ -45,6 +47,7 @@ usePortfolioMotion(root, activeTab)
       <SectionTabs v-model="activeTab" :tabs="tabs" />
 
       <main id="main-content">
+        <PortfolioPanel :active="activeTab === 'portfolio'" :portfolios="portfolios" />
         <ExperiencePanel :active="activeTab === 'experience'" :experiences="experiences" />
         <EducationPanel :active="activeTab === 'education'" :education="education" />
         <SkillsPanel :active="activeTab === 'skills'" :skills="skills" />
