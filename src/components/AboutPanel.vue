@@ -8,8 +8,6 @@ defineProps({ languages: { type: Array, required: true }, active: Boolean })
   <section id="about" :hidden="!active" class="border-t-2 border-black bg-[#ff5c35] px-[clamp(1rem,5vw,4rem)] py-[clamp(4rem,8vw,8rem)] focus-visible:outline-4 focus-visible:outline-offset-[-6px] focus-visible:outline-blue-600" role="tabpanel" aria-labelledby="tab-about" tabindex="0" data-tab-panel>
     <div class="grid items-end gap-10 lg:grid-cols-[1fr_auto]">
       <div>
-        <p class="font-mono text-xs font-extrabold uppercase tracking-[0.16em]">05 / About</p>
-        <h2 class="max-w-232 font-['Archivo',ui-sans-serif,system-ui,sans-serif] text-[clamp(3rem,8vw,8rem)] font-black uppercase leading-[0.82] tracking-[-0.07em]">Make the interface hold up.</h2>
         <p class="mt-7 max-w-3xl text-lg font-semibold leading-relaxed">
           I've worked on frontend systems for stock trading, cash pickup, hospital operations, recruitment, doctor booking, and B2B marketplaces. I focus on performance, stability, and code that teams can maintain.
         </p>

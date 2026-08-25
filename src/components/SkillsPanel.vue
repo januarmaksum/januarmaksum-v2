@@ -4,10 +4,6 @@ defineProps({ skills: { type: Array, required: true }, active: Boolean })
 
 <template>
   <section id="skills" :hidden="!active" class="border-t-2 border-black bg-[#111111] px-[clamp(1rem,5vw,4rem)] py-[clamp(4rem,8vw,8rem)] text-white focus-visible:outline-4 focus-visible:outline-offset-[-6px] focus-visible:outline-blue-600" role="tabpanel" aria-labelledby="tab-skills" tabindex="0" data-tab-panel>
-    <div data-reveal class="mb-[clamp(2.5rem,6vw,5rem)] grid grid-cols-1 gap-[1.1rem] lg:grid-cols-[minmax(0,1.4fr)_minmax(18rem,0.6fr)] lg:items-end">
-      <p class="font-mono text-xs font-extrabold uppercase tracking-[0.16em] lg:col-span-2">03 / Skills</p>
-      <h2 class="max-w-248 text-balance font-['Archivo',ui-sans-serif,system-ui,sans-serif] text-[clamp(2.75rem,7vw,7.5rem)] font-black uppercase leading-[0.87] tracking-[-0.07em] max-[359px]:text-4xl">Technical stack.</h2>
-    </div>
     <div class="grid border-l-2 border-t-2 border-white md:grid-cols-2 lg:grid-cols-3">
       <article v-for="skill in skills" :key="skill.number" data-reveal class="min-w-0 border-b-2 border-r-2 border-white p-[clamp(1.25rem,3vw,2rem)] lg:nth-[n+4]:min-h-52">
         <p class="font-mono text-[0.7rem] font-extrabold text-[#e8ff3f]">{{ skill.number }}</p>
