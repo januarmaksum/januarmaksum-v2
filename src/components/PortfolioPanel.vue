@@ -32,6 +32,7 @@ const selectedPortfolio = ref(null)
 const activeFilter = ref('all')
 const portfolioGrid = ref(null)
 let filterAnimationId = 0
+let animatedPortfolioItems = []
 let portfolioTriggerElement = null
 let portfolioScrollPosition = { x: 0, y: 0 }
 let scrollRestoreFrame = 0
@@ -95,43 +96,74 @@ function handleCloseAutoFocus(event) {
   })
 }
 
+function clearFilterItemStyles(items) {
+  if (!items.length) return
+
+  gsap.set(items, { clearProps: 'opacity,transform,visibility' })
+  items.forEach((item) => item.classList.remove('portfolio-card-flipping'))
+}
+
+function stopFilterAnimation(items, complete = true) {
+  if (!items.length) return
+
+  Flip.killFlipsOf(items, complete)
+  gsap.killTweensOf(items)
+  clearFilterItemStyles(items)
+}
+
 async function selectFilter(filterId) {
   if (filterId === activeFilter.value) return
 
   const animationId = ++filterAnimationId
   const currentItems = Array.from(portfolioGrid.value?.querySelectorAll('[data-portfolio-item]') ?? [])
+  const itemsToReset = Array.from(new Set([...animatedPortfolioItems, ...currentItems]))
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
   let previousState
 
+  stopFilterAnimation(itemsToReset)
+  animatedPortfolioItems = []
+
   if (!reduceMotion && currentItems.length) {
-    Flip.killFlipsOf(currentItems, true)
-    gsap.killTweensOf(currentItems)
     previousState = Flip.getState(currentItems)
   }
 
   activeFilter.value = filterId
   await nextTick()
 
-  if (reduceMotion || animationId !== filterAnimationId || !previousState) return
-
   const nextItems = Array.from(portfolioGrid.value?.querySelectorAll('[data-portfolio-item]') ?? [])
+
+  if (animationId !== filterAnimationId) return
+
+  if (reduceMotion || !previousState) {
+    clearFilterItemStyles(nextItems)
+    return
+  }
+
+  animatedPortfolioItems = Array.from(new Set([...currentItems, ...nextItems]))
+
   Flip.from(previousState, {
     targets: nextItems,
     duration: 0.36,
     ease: 'power2.out',
     stagger: 0.035,
     absoluteOnLeave: true,
+    toggleClass: 'portfolio-card-flipping',
     onEnter: (elements) => gsap.fromTo(elements, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.25, ease: 'power2.out' }),
     onLeave: (elements) => gsap.to(elements, { opacity: 0, y: -8, duration: 0.18, ease: 'power1.in' }),
-    onComplete: () => gsap.set(nextItems, { clearProps: 'opacity,transform,visibility' }),
+    onComplete: () => {
+      if (animationId !== filterAnimationId) return
+
+      clearFilterItemStyles(nextItems)
+      animatedPortfolioItems = []
+    },
   })
 }
 
 onBeforeUnmount(() => {
   const items = Array.from(portfolioGrid.value?.querySelectorAll('[data-portfolio-item]') ?? [])
   filterAnimationId += 1
-  Flip.killFlipsOf(items, false)
-  gsap.killTweensOf(items)
+  stopFilterAnimation(Array.from(new Set([...animatedPortfolioItems, ...items])), false)
+  animatedPortfolioItems = []
   scrollRestoreId += 1
   cancelAnimationFrame(scrollRestoreFrame)
 })
@@ -169,7 +201,7 @@ onBeforeUnmount(() => {
           data-portfolio-item
           data-portfolio-card
           :data-flip-id="portfolio.id"
-          class="group relative flex min-w-0 flex-col border-2 border-[#111111] bg-white [box-shadow:6px_6px_0_#111111] transition-[box-shadow,transform] duration-170 ease-[ease] hover:[box-shadow:8px_8px_0_#ff5c35] md:hover:transform-[translate(-2px,-2px)] motion-reduce:duration-[0.01ms]"
+          class="group relative flex min-w-0 flex-col border-2 border-[#111111] bg-white [box-shadow:6px_6px_0_#111111] transition-[box-shadow,transform] duration-170 ease-[ease] hover:[box-shadow:8px_8px_0_#ff5c35] md:hover:transform-[translate(-2px,-2px)] [&.portfolio-card-flipping]:transition-none motion-reduce:duration-[0.01ms]"
         >
           <button
             type="button"
