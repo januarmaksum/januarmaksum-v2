@@ -2,8 +2,6 @@
 import { ref } from 'vue'
 import AboutPanel from '@/components/AboutPanel.vue'
 import AmbientWaves from '@/components/AmbientWaves.vue'
-import CertificationsPanel from '@/components/CertificationsPanel.vue'
-import EducationPanel from '@/components/EducationPanel.vue'
 import ExperiencePanel from '@/components/ExperiencePanel.vue'
 import HeroSection from '@/components/HeroSection.vue'
 import PortfolioPanel from '@/components/PortfolioPanel.vue'
@@ -49,10 +47,8 @@ usePortfolioMotion(root, activeTab)
       <main id="main-content">
         <PortfolioPanel :active="activeTab === 'portfolio'" :portfolios="portfolios" />
         <ExperiencePanel :active="activeTab === 'experience'" :experiences="experiences" />
-        <EducationPanel :active="activeTab === 'education'" :education="education" />
         <SkillsPanel :active="activeTab === 'skills'" :skills="skills" />
-        <CertificationsPanel :active="activeTab === 'certifications'" :certifications="certifications" />
-        <AboutPanel :active="activeTab === 'about'" :languages="languages" />
+        <AboutPanel :active="activeTab === 'about'" :certifications="certifications" :education="education" :languages="languages" />
       </main>
     </div>
   </div>

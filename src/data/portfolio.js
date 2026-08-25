@@ -142,6 +142,7 @@ export const skills = [
   { number: '03', title: 'Backend', items: 'Node.js · Express.js' },
   { number: '04', title: 'Languages and tools', items: 'JavaScript · TypeScript · HTML · CSS · Git' },
   { number: '05', title: 'Low-code', items: 'WordPress' },
+  { number: '06', title: 'Database', items: 'MySQL · MongoDB' },
 ]
 
 export const certifications = [
@@ -155,9 +156,7 @@ export const languages = ['Indonesian · Native', 'English · Conversational']
 export const tabs = [
   { id: 'portfolio', label: 'Portfolio', count: portfolios.length },
   { id: 'experience', label: 'Experience', count: experiences.length },
-  { id: 'education', label: 'Education', count: education.length },
   { id: 'skills', label: 'Skills', count: skills.length },
-  { id: 'certifications', label: 'Certifications', count: certifications.length },
   { id: 'about', label: 'About' },
 ]
 
