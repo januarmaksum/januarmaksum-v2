@@ -1,4 +1,6 @@
 <script setup>
+import ProfileGridScan from '@/components/ProfileGridScan.vue'
+
 defineProps({
   availabilityModes: { type: Array, required: true },
   socialLinks: { type: Array, required: true },
@@ -8,10 +10,12 @@ defineProps({
 
 <template>
   <section
-    class="relative bg-[#111111] bg-[linear-gradient(rgba(255,255,255,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.06)_1px,transparent_1px)] bg-size-[clamp(32px,4vw,48px)_clamp(32px,4vw,48px)] bg-position-[-1px_-1px] px-4 pb-8 pt-16 text-white sm:px-8 md:px-12 md:py-10 lg:px-16"
+    class="relative overflow-hidden bg-[#111111] px-4 pb-8 pt-16 text-white sm:px-8 md:px-12 md:py-10 lg:px-16"
     aria-label="Profile overview"
   >
-    <div class="grid items-center gap-8 md:grid-cols-[1fr_auto] lg:grid-cols-[1fr_10rem]">
+    <ProfileGridScan />
+
+    <div class="relative z-10 grid items-center gap-8 md:grid-cols-[1fr_auto] lg:grid-cols-[1fr_10rem]">
       <div class="min-w-0">
         <h2 class="mt-2 font-['Archivo',ui-sans-serif,system-ui,sans-serif] text-3xl font-black uppercase tracking-[-0.04em] sm:text-4xl">Januar Maksum</h2>
         <p class="max-w-176 text-pretty text-base leading-relaxed text-white/65">
