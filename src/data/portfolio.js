@@ -4,12 +4,12 @@ import pintarnyaEmployerDashboardImage from '@/assets/portfolio/pintarnya-employ
 
 export const technologies = [
   { name: 'JavaScript', icon: 'javascript', classes: '-rotate-2 shadow-[4px_4px_0_#ff5c35]' },
-  { name: 'TypeScript', icon: 'typescript', classes: '-rotate-1 text-[#3178c6] shadow-[4px_4px_0_#ff5c35]' },
+  { name: 'TypeScript', icon: 'typescript', classes: 'rotate-2 text-[#3178c6] shadow-[4px_4px_0_#e8ff3f]' },
   { name: 'React', icon: 'react', classes: '-rotate-2 text-[#087ea4] shadow-[4px_4px_0_#ff5c35]' },
   { name: 'Vue.js', icon: 'vue', classes: 'rotate-1 shadow-[4px_4px_0_#e8ff3f]' },
-  { name: 'Next.js', icon: 'next', classes: 'rotate-2 text-[#111111] shadow-[4px_4px_0_#e8ff3f]' },
-  { name: 'Node.js', icon: 'node', classes: '-rotate-2 text-[#3c873a] shadow-[4px_4px_0_#ff5c35]' },
-  { name: 'Express.js', icon: 'express', classes: 'rotate-2 text-[#111111] shadow-[4px_4px_0_#e8ff3f]' },
+  { name: 'Next.js', icon: 'next', classes: '-rotate-2 text-[#111111] shadow-[4px_4px_0_#ff5c35]' },
+  { name: 'Node.js', icon: 'node', classes: '-rotate-2 text-[#3c873a] shadow-[4px_4px_0_#e8ff3f]' },
+  { name: 'Express.js', icon: 'express', classes: 'rotate-2 text-[#111111] shadow-[4px_4px_0_#ff5c35]' },
 ]
 
 export const availabilityModes = ['Remote', 'On-site', 'Hybrid', 'Freelance', 'Part-time']

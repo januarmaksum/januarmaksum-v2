@@ -7,7 +7,7 @@ defineProps({ skills: { type: Array, required: true }, active: Boolean })
     <div class="grid border-l-2 border-t-2 border-[#111111] md:grid-cols-2 lg:grid-cols-3">
       <article v-for="skill in skills" :key="skill.number" data-reveal class="min-w-0 border-b-2 border-r-2 border-[#111111] bg-[#FFFFFF] p-[clamp(1.25rem,3vw,2rem)] lg:nth-[n+4]:min-h-52">
         <p class="font-mono text-[0.7rem] font-extrabold text-[#b83215]">{{ skill.number }}</p>
-        <h3 class="mb-3 mt-8 font-['Archivo',ui-sans-serif,system-ui,sans-serif] text-[clamp(1.45rem,3vw,2.3rem)] font-black uppercase leading-none tracking-[-0.04em]">{{ skill.title }}</h3>
+        <h3 class="mb-3 mt-8 font-['Archivo',ui-sans-serif,system-ui,sans-serif] text-[clamp(1.45rem,3vw,2rem)] font-black uppercase leading-none tracking-[-0.04em]">{{ skill.title }}</h3>
         <span class="leading-[1.7] text-[#67645d]">{{ skill.items }}</span>
       </article>
     </div>

@@ -1,6 +1,6 @@
 <script setup>
 import { siExpress, siNextdotjs, siNodedotjs, siReact, siTypescript } from 'simple-icons'
-import portraitUrl from '@/assets/januarmaksum-v1-recolored.png'
+import portraitUrl from '@/assets/januarmaksum-v3-recolored.png'
 
 defineProps({ technologies: { type: Array, required: true } })
 
@@ -51,7 +51,7 @@ const icons = {
           <li
             v-for="technology in technologies"
             :key="technology.name"
-            class="flex size-[clamp(2.7rem,12vw,3.15rem)] shrink-0 items-center justify-center border-2 border-[#111111] bg-[#F2ECE1] md:size-[clamp(2.85rem,4.5vw,3.25rem)]"
+            class="flex size-[clamp(2.7rem,12vw,3.15rem)] shrink-0 items-center bg-white justify-center border-2 border-[#111111] md:size-[clamp(2.85rem,4.5vw,3.25rem)]"
             :class="technology.classes"
           >
             <svg class="size-[56%] shrink-0" :viewBox="icons[technology.icon].viewBox" aria-hidden="true">

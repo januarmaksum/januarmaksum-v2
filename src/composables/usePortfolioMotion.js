@@ -5,6 +5,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 export function usePortfolioMotion(root, activeTab) {
   let context
   let reducedMotion
+  let aboutWaveTween
 
   function clearMotionStyles() {
     root.value?.querySelectorAll('[data-motion], [data-reveal], [data-tab-panel], [data-tab-panel] > *').forEach((element) => {
@@ -26,12 +27,43 @@ export function usePortfolioMotion(root, activeTab) {
     })
   }
 
+  function stopAboutWave() {
+    aboutWaveTween?.kill()
+    aboutWaveTween = undefined
+
+    const hand = root.value?.querySelector('[data-motion="about-wave"]')
+    if (hand) gsap.set(hand, { clearProps: 'transform,transformOrigin' })
+  }
+
+  function syncAboutWave(tabId = activeTab.value) {
+    stopAboutWave()
+
+    const hand = root.value?.querySelector('[data-motion="about-wave"]')
+    if (!hand || tabId !== 'about' || reducedMotion?.matches) return
+
+    aboutWaveTween = gsap.fromTo(hand, {
+      rotation: -12,
+      transformOrigin: 'bottom center',
+    }, {
+      rotation: 16,
+      duration: 0.45,
+      repeat: -1,
+      yoyo: true,
+      ease: 'sine.inOut',
+    })
+  }
+
   function disableMotion(event) {
-    if (!event.matches) return
-    ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
-    context?.revert()
-    gsap.globalTimeline.clear()
-    clearMotionStyles()
+    if (event.matches) {
+      stopAboutWave()
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
+      context?.revert()
+      gsap.globalTimeline.clear()
+      clearMotionStyles()
+      return
+    }
+
+    syncAboutWave()
   }
 
   onMounted(() => {
@@ -63,15 +95,19 @@ export function usePortfolioMotion(root, activeTab) {
         },
       })
     }, root.value)
+
+    syncAboutWave()
   })
 
   watch(activeTab, async (tabId) => {
     await nextTick()
     animatePanel(root.value?.querySelector(`#${tabId}`))
+    syncAboutWave(tabId)
   })
 
   onBeforeUnmount(() => {
     reducedMotion?.removeEventListener('change', disableMotion)
+    stopAboutWave()
     ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
     context?.revert()
     clearMotionStyles()

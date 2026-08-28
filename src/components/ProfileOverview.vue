@@ -10,7 +10,7 @@ defineProps({
 
 <template>
   <section
-    class="relative overflow-hidden bg-[#111111] px-4 pb-8 pt-16 text-white sm:px-8 md:px-12 md:py-10 lg:px-16"
+    class="relative overflow-hidden bg-[#111111] px-4 pb-8 pt-16 text-white sm:px-8 md:px-12 md:py-16 lg:px-16"
     aria-label="Profile overview"
   >
     <ProfileGridScan />
@@ -21,7 +21,7 @@ defineProps({
         <p class="max-w-176 text-pretty text-base leading-relaxed text-white/65">
           Full-stack developer · Frontend (React, Vue) · Mobile (React Native) · Backend (Express.js)
         </p>
-        <div data-motion="availability" class="mt-4 block w-[calc(100%-6px)] border-2 border-white bg-[#242424] text-white shadow-[4px_4px_0_#ff5c35] md:inline-grid md:w-fit md:max-w-[calc(100%-6px)] md:grid-cols-[max-content_minmax(0,1fr)]">
+        <div data-motion="availability" class="mt-7 block w-[calc(100%-6px)] border-2 border-white bg-[#242424] text-white shadow-[4px_4px_0_#ff5c35] md:inline-grid md:w-fit md:max-w-[calc(100%-6px)] md:grid-cols-[max-content_minmax(0,1fr)]">
           <div class="flex w-full items-center gap-[0.55rem] bg-[#e8ff3f] px-1 py-1.5 text-[0.78rem] font-extrabold uppercase tracking-[0.03em] text-[#111111] md:w-auto">
             <span>Open to work</span>
           </div>

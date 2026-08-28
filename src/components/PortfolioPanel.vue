@@ -228,21 +228,6 @@ onBeforeUnmount(() => {
           <div class="flex flex-1 flex-col p-[clamp(1.15rem,2.5vw,1.6rem)]">
             <p class="font-mono text-[0.68rem] font-extrabold uppercase leading-normal tracking-[0.08em] text-[#67645d]">{{ portfolio.company }} · {{ portfolio.category }}</p>
             <h3 class="mt-2 font-['Archivo',ui-sans-serif,system-ui,sans-serif] text-[clamp(1.45rem,2.7vw,2rem)] font-black uppercase leading-none tracking-[-0.04em]">{{ portfolio.title }}</h3>
-            <!-- <p class="mt-4 line-clamp-3 leading-[1.6] text-[#67645d]">{{ portfolio.description }}</p> -->
-
-            <ul class="mt-5 flex list-none flex-wrap gap-1.5" :aria-label="`Technologies used for ${portfolio.title}`">
-              <li v-for="technology in portfolio.technologies" :key="technology" class="border border-[#111111] bg-[#F2ECE1] px-2 py-1 font-mono text-[0.62rem] font-extrabold uppercase tracking-[0.04em]">
-                {{ technology }}
-              </li>
-              <!-- <li v-if="portfolio.technologies.length > 3" class="border border-[#111111] bg-[#e8ff3f] px-2 py-1 font-mono text-[0.62rem] font-extrabold uppercase tracking-[0.04em]" :aria-label="`${portfolio.technologies.length - 3} more technologies`">
-                +{{ portfolio.technologies.length - 3 }}
-              </li> -->
-            </ul>
-
-            <span class="mt-6 inline-flex min-h-11 items-center justify-between gap-3 border-t-2 border-[#111111] pt-3 font-extrabold uppercase">
-              View details
-              <ArrowRight class="size-5 shrink-0 transition-transform duration-170 group-hover:translate-x-1 motion-reduce:transition-none motion-reduce:group-hover:translate-x-0" :stroke-width="2" aria-hidden="true" />
-            </span>
           </div>
         </article>
 

@@ -13,7 +13,7 @@ defineProps({ experiences: { type: Array, required: true }, active: Boolean })
       >
         <div>
           <p class="font-mono text-[0.7rem] font-extrabold uppercase leading-[1.55] tracking-[0.08em]">{{ experience.date }}</p>
-          <h3 class="mt-[0.35rem] font-['Archivo',ui-sans-serif,system-ui,sans-serif] text-[clamp(1.65rem,3vw,2.8rem)] font-black uppercase leading-none tracking-[-0.04em]">{{ experience.company }}</h3>
+          <h3 class="mt-[0.35rem] font-['Archivo',ui-sans-serif,system-ui,sans-serif] text-[clamp(1.65rem,3vw,2rem)] font-black uppercase leading-none tracking-[-0.04em]">{{ experience.company }}</h3>
           <p class="mt-[0.8rem] font-extrabold">{{ experience.role }}</p>
           <p class="mt-1 text-[0.9rem] text-[#67645d]">{{ experience.location }}</p>
         </div>
