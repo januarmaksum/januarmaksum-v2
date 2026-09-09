@@ -49,7 +49,6 @@ function handleKeydown(event, index) {
         @keydown="handleKeydown($event, index)"
       >
         <span>{{ tab.label }}</span>
-        <sup v-if="tab.count" class="font-mono text-[0.65rem]">{{ tab.count }}</sup>
       </button>
     </div>
   </div>
