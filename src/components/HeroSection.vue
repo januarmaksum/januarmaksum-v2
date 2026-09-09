@@ -1,6 +1,6 @@
 <script setup>
 import { siExpress, siNextdotjs, siNodedotjs, siReact, siTypescript } from 'simple-icons'
-import portraitUrl from '@/assets/januarmaksum-v3-recolored.png'
+import portraitUrl from '@/assets/januar-maksum.png'
 
 defineProps({ technologies: { type: Array, required: true } })
 

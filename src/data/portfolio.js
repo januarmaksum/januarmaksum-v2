@@ -1,6 +1,388 @@
-import agenbrilinkAmbilinImage from '@/assets/portfolio/agenbrilink-ambilin.avif'
-import ajaibTerminalImage from '@/assets/portfolio/ajaib-terminal.avif'
-import pintarnyaEmployerDashboardImage from '@/assets/portfolio/pintarnya-employer-dashboard.avif'
+import aprdiThumbnail520Avif from '@/assets/portfolio/aprdi/aprdi-thumbnail-520.avif'
+import gesundheit520Avif from '@/assets/portfolio/gesundheit/gesundheit-thumbnail-520.avif'
+import gesundheit1040Avif from '@/assets/portfolio/gesundheit/gesundheit-thumbnail-1040.avif'
+import gesundheit1536Avif from '@/assets/portfolio/gesundheit/gesundheit-thumbnail-1536.avif'
+import gesundheit520Webp from '@/assets/portfolio/gesundheit/gesundheit-thumbnail-520.webp'
+import gesundheit1040Webp from '@/assets/portfolio/gesundheit/gesundheit-thumbnail-1040.webp'
+import gesundheit1536Webp from '@/assets/portfolio/gesundheit/gesundheit-thumbnail-1536.webp'
+import bankBsiThumbnail520Avif from '@/assets/portfolio/bank-bsi/bank-bsi-thumbnail-520.avif'
+import bankBsiThumbnail1040Avif from '@/assets/portfolio/bank-bsi/bank-bsi-thumbnail-1040.avif'
+import bankBsiThumbnail1536Avif from '@/assets/portfolio/bank-bsi/bank-bsi-thumbnail-1536.avif'
+import bankBsiThumbnail520Webp from '@/assets/portfolio/bank-bsi/bank-bsi-thumbnail-520.webp'
+import bankBsiThumbnail1040Webp from '@/assets/portfolio/bank-bsi/bank-bsi-thumbnail-1040.webp'
+import bankBsiThumbnail1536Webp from '@/assets/portfolio/bank-bsi/bank-bsi-thumbnail-1536.webp'
+import aprdiThumbnail1040Avif from '@/assets/portfolio/aprdi/aprdi-thumbnail-1040.avif'
+import aprdiThumbnail1536Avif from '@/assets/portfolio/aprdi/aprdi-thumbnail-1536.avif'
+import aprdiThumbnail520Webp from '@/assets/portfolio/aprdi/aprdi-thumbnail-520.webp'
+import aprdiThumbnail1040Webp from '@/assets/portfolio/aprdi/aprdi-thumbnail-1040.webp'
+import aprdiThumbnail1536Webp from '@/assets/portfolio/aprdi/aprdi-thumbnail-1536.webp'
+import sigtechThumbnail520Avif from '@/assets/portfolio/sightech/sigtech-thumbnail-520.avif'
+import sigtechThumbnail1040Avif from '@/assets/portfolio/sightech/sigtech-thumbnail-1040.avif'
+import sigtechThumbnail1536Avif from '@/assets/portfolio/sightech/sigtech-thumbnail-1536.avif'
+import sigtechThumbnail520Webp from '@/assets/portfolio/sightech/sigtech-thumbnail-520.webp'
+import sigtechThumbnail1040Webp from '@/assets/portfolio/sightech/sigtech-thumbnail-1040.webp'
+import sigtechThumbnail1536Webp from '@/assets/portfolio/sightech/sigtech-thumbnail-1536.webp'
+import butterflyVacationThumbnail520Avif from '@/assets/portfolio/butterflyvacation/butterflyvacation-thumbnail-520.avif'
+import butterflyVacationThumbnail1040Avif from '@/assets/portfolio/butterflyvacation/butterflyvacation-thumbnail-1040.avif'
+import butterflyVacationThumbnail1536Avif from '@/assets/portfolio/butterflyvacation/butterflyvacation-thumbnail-1536.avif'
+import butterflyVacationThumbnail520Webp from '@/assets/portfolio/butterflyvacation/butterflyvacation-thumbnail-520.webp'
+import butterflyVacationThumbnail1040Webp from '@/assets/portfolio/butterflyvacation/butterflyvacation-thumbnail-1040.webp'
+import butterflyVacationThumbnail1536Webp from '@/assets/portfolio/butterflyvacation/butterflyvacation-thumbnail-1536.webp'
+import phloxyEmeraldThumbnail520Avif from '@/assets/portfolio/phloxyemerald/phloxyemerald-thumbnail-520.avif'
+import phloxyEmeraldThumbnail1040Avif from '@/assets/portfolio/phloxyemerald/phloxyemerald-thumbnail-1040.avif'
+import phloxyEmeraldThumbnail1536Avif from '@/assets/portfolio/phloxyemerald/phloxyemerald-thumbnail-1536.avif'
+import phloxyEmeraldThumbnail520Webp from '@/assets/portfolio/phloxyemerald/phloxyemerald-thumbnail-520.webp'
+import phloxyEmeraldThumbnail1040Webp from '@/assets/portfolio/phloxyemerald/phloxyemerald-thumbnail-1040.webp'
+import phloxyEmeraldThumbnail1536Webp from '@/assets/portfolio/phloxyemerald/phloxyemerald-thumbnail-1536.webp'
+import safetyFirstApparelThumbnail520Avif from '@/assets/portfolio/safetyfirstapparel/safety-first-apparel-thumbnail-520.avif'
+import safetyFirstApparelThumbnail1040Avif from '@/assets/portfolio/safetyfirstapparel/safety-first-apparel-thumbnail-1040.avif'
+import safetyFirstApparelThumbnail1536Avif from '@/assets/portfolio/safetyfirstapparel/safety-first-apparel-thumbnail-1536.avif'
+import safetyFirstApparelThumbnail520Webp from '@/assets/portfolio/safetyfirstapparel/safety-first-apparel-thumbnail-520.webp'
+import safetyFirstApparelThumbnail1040Webp from '@/assets/portfolio/safetyfirstapparel/safety-first-apparel-thumbnail-1040.webp'
+import safetyFirstApparelThumbnail1536Webp from '@/assets/portfolio/safetyfirstapparel/safety-first-apparel-thumbnail-1536.webp'
+import gncShootThumbnail520Avif from '@/assets/portfolio/gnc-shoot/gnc-shoot-thumbnail-520.avif'
+import gncShootThumbnail1040Avif from '@/assets/portfolio/gnc-shoot/gnc-shoot-thumbnail-1040.avif'
+import gncShootThumbnail1536Avif from '@/assets/portfolio/gnc-shoot/gnc-shoot-thumbnail-1536.avif'
+import gncShootThumbnail520Webp from '@/assets/portfolio/gnc-shoot/gnc-shoot-thumbnail-520.webp'
+import gncShootThumbnail1040Webp from '@/assets/portfolio/gnc-shoot/gnc-shoot-thumbnail-1040.webp'
+import gncShootThumbnail1536Webp from '@/assets/portfolio/gnc-shoot/gnc-shoot-thumbnail-1536.webp'
+import indonetworkThumbnail520Avif from '@/assets/portfolio/indonetwork/indonetwork-thumbnail-520.avif'
+import indonetworkThumbnail1040Avif from '@/assets/portfolio/indonetwork/indonetwork-thumbnail-1040.avif'
+import indonetworkThumbnail1536Avif from '@/assets/portfolio/indonetwork/indonetwork-thumbnail-1536.avif'
+import indonetworkThumbnail520Webp from '@/assets/portfolio/indonetwork/indonetwork-thumbnail-520.webp'
+import indonetworkThumbnail1040Webp from '@/assets/portfolio/indonetwork/indonetwork-thumbnail-1040.webp'
+import indonetworkThumbnail1536Webp from '@/assets/portfolio/indonetwork/indonetwork-thumbnail-1536.webp'
+import rsHarapanKitaModal520Avif from '@/assets/portfolio/rs-harapan-kita/rs-harapan-kita-modal-520.avif'
+import rsHarapanKitaModal1040Avif from '@/assets/portfolio/rs-harapan-kita/rs-harapan-kita-modal-1040.avif'
+import rsHarapanKitaModal1536Avif from '@/assets/portfolio/rs-harapan-kita/rs-harapan-kita-modal-1536.avif'
+import rsHarapanKitaModal520Webp from '@/assets/portfolio/rs-harapan-kita/rs-harapan-kita-modal-520.webp'
+import rsHarapanKitaModal1040Webp from '@/assets/portfolio/rs-harapan-kita/rs-harapan-kita-modal-1040.webp'
+import rsHarapanKitaModal1536Webp from '@/assets/portfolio/rs-harapan-kita/rs-harapan-kita-modal-1536.webp'
+import ajaibTerminalImage520Avif from '@/assets/portfolio/ajaib/ajaib-terminal-520.avif'
+import ajaibTerminalImage1040Avif from '@/assets/portfolio/ajaib/ajaib-terminal-1040.avif'
+import ajaibTerminalImage1536Avif from '@/assets/portfolio/ajaib/ajaib-terminal-1536.avif'
+import ajaibTerminalImage520Webp from '@/assets/portfolio/ajaib/ajaib-terminal-520.webp'
+import ajaibTerminalImage1040Webp from '@/assets/portfolio/ajaib/ajaib-terminal-1040.webp'
+import ajaibTerminalImage1536Webp from '@/assets/portfolio/ajaib/ajaib-terminal-1536.webp'
+import ambilinCashPickupImage520Avif from '@/assets/portfolio/ambilin/ambilin-app-520.avif'
+import ambilinCashPickupImage1040Avif from '@/assets/portfolio/ambilin/ambilin-app-1040.avif'
+import ambilinCashPickupImage1536Avif from '@/assets/portfolio/ambilin/ambilin-app-1536.avif'
+import ambilinCashPickupImage520Webp from '@/assets/portfolio/ambilin/ambilin-app-520.webp'
+import ambilinCashPickupImage1040Webp from '@/assets/portfolio/ambilin/ambilin-app-1040.webp'
+import ambilinCashPickupImage1536Webp from '@/assets/portfolio/ambilin/ambilin-app-1536.webp'
+import pintarnyaCard520Avif from '@/assets/portfolio/pintarnya/pintarnya-card-520.avif'
+import pintarnyaCard1040Avif from '@/assets/portfolio/pintarnya/pintarnya-card-1040.avif'
+import pintarnyaCard1536Avif from '@/assets/portfolio/pintarnya/pintarnya-card-1536.avif'
+import pintarnyaCard520Webp from '@/assets/portfolio/pintarnya/pintarnya-card-520.webp'
+import pintarnyaCard1040Webp from '@/assets/portfolio/pintarnya/pintarnya-card-1040.webp'
+import pintarnyaCard1536Webp from '@/assets/portfolio/pintarnya/pintarnya-card-1536.webp'
+import alodokterThumbnail520Avif from '@/assets/portfolio/alodokter/alodokter-thumbnail-520.avif'
+import alodokterThumbnail1040Avif from '@/assets/portfolio/alodokter/alodokter-thumbnail-1040.avif'
+import alodokterThumbnail1536Avif from '@/assets/portfolio/alodokter/alodokter-thumbnail-1536.avif'
+import alodokterThumbnail520Webp from '@/assets/portfolio/alodokter/alodokter-thumbnail-520.webp'
+import alodokterThumbnail1040Webp from '@/assets/portfolio/alodokter/alodokter-thumbnail-1040.webp'
+import alodokterThumbnail1536Webp from '@/assets/portfolio/alodokter/alodokter-thumbnail-1536.webp'
+import indotradingThumbnail520Avif from '@/assets/portfolio/indotrading/indotrading-thumbnail-520.avif'
+import indotradingThumbnail1040Avif from '@/assets/portfolio/indotrading/indotrading-thumbnail-1040.avif'
+import indotradingThumbnail1536Avif from '@/assets/portfolio/indotrading/indotrading-thumbnail-1536.avif'
+import indotradingThumbnail520Webp from '@/assets/portfolio/indotrading/indotrading-thumbnail-520.webp'
+import indotradingThumbnail1040Webp from '@/assets/portfolio/indotrading/indotrading-thumbnail-1040.webp'
+import indotradingThumbnail1536Webp from '@/assets/portfolio/indotrading/indotrading-thumbnail-1536.webp'
+
+const rsHarapanKitaImage = {
+  sources: [
+    {
+      type: 'image/avif',
+      srcset: [
+        `${rsHarapanKitaModal520Avif} 520w`,
+        `${rsHarapanKitaModal1040Avif} 1040w`,
+        `${rsHarapanKitaModal1536Avif} 1536w`,
+      ].join(', '),
+    },
+  ],
+  src: rsHarapanKitaModal1536Webp,
+  srcset: [
+    `${rsHarapanKitaModal520Webp} 520w`,
+    `${rsHarapanKitaModal1040Webp} 1040w`,
+    `${rsHarapanKitaModal1536Webp} 1536w`,
+  ].join(', '),
+  width: 1536,
+  height: 1024,
+}
+
+const ajaibTerminalImage = {
+  sources: [
+    {
+      type: 'image/avif',
+      srcset: [
+        `${ajaibTerminalImage520Avif} 520w`,
+        `${ajaibTerminalImage1040Avif} 1040w`,
+        `${ajaibTerminalImage1536Avif} 1536w`,
+      ].join(', '),
+    },
+  ],
+  src: ajaibTerminalImage1536Webp,
+  srcset: [
+    `${ajaibTerminalImage520Webp} 520w`,
+    `${ajaibTerminalImage1040Webp} 1040w`,
+    `${ajaibTerminalImage1536Webp} 1536w`,
+  ].join(', '),
+  width: 1536,
+  height: 1024,
+}
+
+const ambilinCashPickupImage = {
+  sources: [
+    {
+      type: 'image/avif',
+      srcset: [
+        `${ambilinCashPickupImage520Avif} 520w`,
+        `${ambilinCashPickupImage1040Avif} 1040w`,
+        `${ambilinCashPickupImage1536Avif} 1536w`,
+      ].join(', '),
+    },
+  ],
+  src: ambilinCashPickupImage1536Webp,
+  srcset: [
+    `${ambilinCashPickupImage520Webp} 520w`,
+    `${ambilinCashPickupImage1040Webp} 1040w`,
+    `${ambilinCashPickupImage1536Webp} 1536w`,
+  ].join(', '),
+  width: 1536,
+  height: 1024,
+}
+
+const pintarnyaRecruitmentDashboard = {
+  sources: [
+    {
+      type: 'image/avif',
+      srcset: [
+        `${pintarnyaCard520Avif} 520w`,
+        `${pintarnyaCard1040Avif} 1040w`,
+        `${pintarnyaCard1536Avif} 1536w`,
+      ].join(', '),
+    },
+  ],
+  src: pintarnyaCard1536Webp,
+  srcset: [
+    `${pintarnyaCard520Webp} 520w`,
+    `${pintarnyaCard1040Webp} 1040w`,
+    `${pintarnyaCard1536Webp} 1536w`,
+  ].join(', '),
+  width: 1536,
+  height: 1024,
+}
+
+const alodokterImage = {
+  sources: [
+    {
+      type: 'image/avif',
+      srcset: [
+        `${alodokterThumbnail520Avif} 520w`,
+        `${alodokterThumbnail1040Avif} 1040w`,
+        `${alodokterThumbnail1536Avif} 1536w`,
+      ].join(', '),
+    },
+  ],
+  src: alodokterThumbnail1536Webp,
+  srcset: [
+    `${alodokterThumbnail520Webp} 520w`,
+    `${alodokterThumbnail1040Webp} 1040w`,
+    `${alodokterThumbnail1536Webp} 1536w`,
+  ].join(', '),
+  width: 1536,
+  height: 1024,
+}
+
+const indotradingImage = {
+  sources: [
+    {
+      type: 'image/avif',
+      srcset: [
+        `${indotradingThumbnail520Avif} 520w`,
+        `${indotradingThumbnail1040Avif} 1040w`,
+        `${indotradingThumbnail1536Avif} 1536w`,
+      ].join(', '),
+    },
+  ],
+  src: indotradingThumbnail1536Webp,
+  srcset: [
+    `${indotradingThumbnail520Webp} 520w`,
+    `${indotradingThumbnail1040Webp} 1040w`,
+    `${indotradingThumbnail1536Webp} 1536w`,
+  ].join(', '),
+  width: 1536,
+  height: 1024,
+}
+
+const indonetworkImage = {
+  sources: [
+    {
+      type: 'image/avif',
+      srcset: [
+        `${indonetworkThumbnail520Avif} 520w`,
+        `${indonetworkThumbnail1040Avif} 1040w`,
+        `${indonetworkThumbnail1536Avif} 1536w`,
+      ].join(', '),
+    },
+  ],
+  src: indonetworkThumbnail1536Webp,
+  srcset: [
+    `${indonetworkThumbnail520Webp} 520w`,
+    `${indonetworkThumbnail1040Webp} 1040w`,
+    `${indonetworkThumbnail1536Webp} 1536w`,
+  ].join(', '),
+  width: 1536,
+  height: 1024,
+}
+
+const gncShootImage = {
+  sources: [
+    {
+      type: 'image/avif',
+      srcset: [
+        `${gncShootThumbnail520Avif} 520w`,
+        `${gncShootThumbnail1040Avif} 1040w`,
+        `${gncShootThumbnail1536Avif} 1536w`,
+      ].join(', '),
+    },
+  ],
+  src: gncShootThumbnail1536Webp,
+  srcset: [
+    `${gncShootThumbnail520Webp} 520w`,
+    `${gncShootThumbnail1040Webp} 1040w`,
+    `${gncShootThumbnail1536Webp} 1536w`,
+  ].join(', '),
+  width: 1536,
+  height: 1024,
+}
+
+const safetyFirstApparelImage = {
+  sources: [
+    {
+      type: 'image/avif',
+      srcset: [
+        `${safetyFirstApparelThumbnail520Avif} 520w`,
+        `${safetyFirstApparelThumbnail1040Avif} 1040w`,
+        `${safetyFirstApparelThumbnail1536Avif} 1536w`,
+      ].join(', '),
+    },
+  ],
+  src: safetyFirstApparelThumbnail1536Webp,
+  srcset: [
+    `${safetyFirstApparelThumbnail520Webp} 520w`,
+    `${safetyFirstApparelThumbnail1040Webp} 1040w`,
+    `${safetyFirstApparelThumbnail1536Webp} 1536w`,
+  ].join(', '),
+  width: 1536,
+  height: 1024,
+}
+
+const phloxyEmeraldImage = {
+  sources: [
+    {
+      type: 'image/avif',
+      srcset: [
+        `${phloxyEmeraldThumbnail520Avif} 520w`,
+        `${phloxyEmeraldThumbnail1040Avif} 1040w`,
+        `${phloxyEmeraldThumbnail1536Avif} 1536w`,
+      ].join(', '),
+    },
+  ],
+  src: phloxyEmeraldThumbnail1536Webp,
+  srcset: [
+    `${phloxyEmeraldThumbnail520Webp} 520w`,
+    `${phloxyEmeraldThumbnail1040Webp} 1040w`,
+    `${phloxyEmeraldThumbnail1536Webp} 1536w`,
+  ].join(', '),
+  width: 1536,
+  height: 1024,
+}
+
+const sigtechImage = {
+  sources: [
+    {
+      type: 'image/avif',
+      srcset: [
+        `${sigtechThumbnail520Avif} 520w`,
+        `${sigtechThumbnail1040Avif} 1040w`,
+        `${sigtechThumbnail1536Avif} 1536w`,
+      ].join(', '),
+    },
+  ],
+  src: sigtechThumbnail1536Webp,
+  srcset: [
+    `${sigtechThumbnail520Webp} 520w`,
+    `${sigtechThumbnail1040Webp} 1040w`,
+    `${sigtechThumbnail1536Webp} 1536w`,
+  ].join(', '),
+  width: 1536,
+  height: 1024,
+}
+
+const butterflyVacationImage = {
+  sources: [
+    {
+      type: 'image/avif',
+      srcset: [
+        `${butterflyVacationThumbnail520Avif} 520w`,
+        `${butterflyVacationThumbnail1040Avif} 1040w`,
+        `${butterflyVacationThumbnail1536Avif} 1536w`,
+      ].join(', '),
+    },
+  ],
+  src: butterflyVacationThumbnail1536Webp,
+  srcset: [
+    `${butterflyVacationThumbnail520Webp} 520w`,
+    `${butterflyVacationThumbnail1040Webp} 1040w`,
+    `${butterflyVacationThumbnail1536Webp} 1536w`,
+  ].join(', '),
+  width: 1536,
+  height: 1024,
+}
+
+const aprdiImage = {
+  sources: [
+    {
+      type: 'image/avif',
+      srcset: [
+        `${aprdiThumbnail520Avif} 520w`,
+        `${aprdiThumbnail1040Avif} 1040w`,
+        `${aprdiThumbnail1536Avif} 1536w`,
+      ].join(', '),
+    },
+  ],
+  src: aprdiThumbnail1536Webp,
+  srcset: [
+    `${aprdiThumbnail520Webp} 520w`,
+    `${aprdiThumbnail1040Webp} 1040w`,
+    `${aprdiThumbnail1536Webp} 1536w`,
+  ].join(', '),
+  width: 1536,
+  height: 1024,
+}
+
+const gesundheitImage = {
+  sources: [{
+    type: 'image/avif',
+    srcset: `${gesundheit520Avif} 520w, ${gesundheit1040Avif} 1040w, ${gesundheit1536Avif} 1536w`,
+  }],
+  src: gesundheit1536Webp,
+  srcset: `${gesundheit520Webp} 520w, ${gesundheit1040Webp} 1040w, ${gesundheit1536Webp} 1536w`,
+  width: 1536,
+  height: 1024,
+}
+
+const bankBsiImage = {
+  sources: [{
+    type: 'image/avif',
+    srcset: `${bankBsiThumbnail520Avif} 520w, ${bankBsiThumbnail1040Avif} 1040w, ${bankBsiThumbnail1536Avif} 1536w`,
+  }],
+  src: bankBsiThumbnail1536Webp,
+  srcset: `${bankBsiThumbnail520Webp} 520w, ${bankBsiThumbnail1040Webp} 1040w, ${bankBsiThumbnail1536Webp} 1536w`,
+  width: 1536,
+  height: 1024,
+}
 
 export const technologies = [
   { name: 'JavaScript', icon: 'javascript', classes: '-rotate-2 shadow-[4px_4px_0_#ff5c35]' },
@@ -34,7 +416,7 @@ export const experiences = [
       category: 'Desktop stock trading',
       filters: ['react'],
       image: ajaibTerminalImage,
-      imageAlt: 'Abstract editorial illustration representing a desktop stock-trading terminal',
+      imageAlt: 'Ajaib Terminal trading interface displayed on a naturally lit MacBook in a dark blue studio',
     },
   },
   {
@@ -49,8 +431,8 @@ export const experiences = [
       title: 'AgenBRILink Ambilin',
       category: 'WebView cash pickup',
       filters: ['react', 'nextjs', 'mobile'],
-      image: agenbrilinkAmbilinImage,
-      imageAlt: 'Abstract editorial illustration representing a secure mobile cash-pickup journey',
+      image: ambilinCashPickupImage,
+      imageAlt: 'Three overlapping AgenBRILink Ambilin cash-pickup screens on a white route-pattern background with both brand logos',
     },
   },
   {
@@ -60,6 +442,14 @@ export const experiences = [
     location: 'Jakarta, Indonesia | On-site',
     summary: 'Built and maintained internal hospital information system applications with medical staff and internal teams. Fixed UI, performance, and reliability problems, reducing transaction failures by 90%.',
     technologies: 'JavaScript, Angular, React, jQuery, Tailwind',
+    portfolio: {
+      id: 'rs-harapan-kita',
+      title: 'RS Harapan Kita',
+      category: 'Hospital information system',
+      filters: ['angular', 'react'],
+      image: rsHarapanKitaImage,
+      imageAlt: 'RSAB Harapan Kita website interface featuring healthcare services and contact center information',
+    },
   },
   {
     date: 'Oct 2022 — Aug 2023',
@@ -73,8 +463,8 @@ export const experiences = [
       title: 'Pintarnya Employer Dashboard',
       category: 'Recruitment workflow',
       filters: ['react', 'nextjs', 'mobile'],
-      image: pintarnyaEmployerDashboardImage,
-      imageAlt: 'Abstract editorial illustration representing an employer dashboard and recruitment pipeline',
+      image: pintarnyaRecruitmentDashboard,
+      imageAlt: 'Pintarnya employer recruitment website shown in two overlapping desktop page views',
     },
   },
   {
@@ -90,8 +480,8 @@ export const experiences = [
       category: 'Doctor Discovery',
       filters: [],
       description: 'Project description and case study details will be added here.',
-      image: pintarnyaEmployerDashboardImage,
-      imageAlt: 'Temporary abstract recruitment-dashboard placeholder illustration for the Alodokter portfolio project',
+      image: alodokterImage,
+      imageAlt: 'Alodokter desktop homepage with mobile doctor discovery, listing, and booking screens arranged in a healthcare interface collage',
     },
   },
   {
@@ -105,10 +495,10 @@ export const experiences = [
       id: 'indonetwork',
       title: 'Indonetwork',
       category: 'B2B Marketplace',
-      filters: ['vue', 'wordpress'],
+      filters: ['wordpress'],
       description: 'Project description and case study details will be added here.',
-      image: pintarnyaEmployerDashboardImage,
-      imageAlt: 'Temporary abstract recruitment-dashboard placeholder illustration for the Indonetwork portfolio project',
+      image: indonetworkImage,
+      imageAlt: 'Indonetwork desktop homepage on an angled MacBook with a handheld smartphone displaying an Indonetwork valve product page',
     },
   },
   {
@@ -118,10 +508,19 @@ export const experiences = [
     location: 'Jakarta, Indonesia | On-site',
     summary: "Designed and built responsive production pages for Indotrading's B2B marketplace. Fixed layout, usability, and cross-browser issues across existing pages.",
     technologies: 'JavaScript, jQuery, HTML, CSS, Bootstrap, Photoshop',
+    portfolio: {
+      id: 'indotrading',
+      title: 'Indotrading',
+      category: 'B2B Marketplace',
+      filters: ['wordpress'],
+      description: 'Project description and case study details will be added here.',
+      image: indotradingImage,
+      imageAlt: 'Indotrading B2B marketplace homepage displayed on a front-facing black laptop against a gray background',
+    },
   },
 ]
 
-export const portfolios = experiences
+const experiencePortfolios = experiences
   .filter((experience) => experience.portfolio)
   .map(({ company, date, role, summary, technologies: experienceTechnologies, portfolio }) => ({
     ...portfolio,
@@ -131,6 +530,109 @@ export const portfolios = experiences
     description: portfolio.description ?? summary,
     technologies: experienceTechnologies.split(', '),
   }))
+
+// Add freelance and side projects here without adding employment history.
+const additionalPortfolios = [
+  {
+    id: 'gnc-shoot',
+    title: 'GNC Shoot',
+    company: 'GNC',
+    category: 'Photography',
+    filters: [],
+    role: 'Freelance',
+    period: 'Nov 2025',
+    description: "Shoot and edited for GNC's social media campaign.",
+    technologies: ['Sony A6400', 'Godox Lighting'],
+    image: gncShootImage,
+    imageAlt: 'GNC Shoot photography website on an angled MacBook and iPhone against a black background with red smoke',
+  },
+  {
+    id: 'safety-first-apparel',
+    title: 'Safety First Apparel',
+    company: 'Safety First Apparel',
+    category: 'Safety equipment catalog',
+    filters: [],
+    role: 'Freelance',
+    period: '',
+    description: 'A product catalog website for Safety First Apparel, featuring workplace safety equipment, product categories, and supplier contact information.',
+    technologies: [],
+    image: safetyFirstApparelImage,
+    imageAlt: 'Two overlapping Safety First Apparel website views showing the homepage and safety product catalog against a blue gradient background',
+  },
+  {
+    id: 'phloxy-emerald',
+    title: 'Phloxy Emerald',
+    company: 'PT Phloxy Emerald Sinergi',
+    category: 'Company profile',
+    filters: [],
+    role: 'Freelance',
+    period: '',
+    description: 'A company profile website for PT Phloxy Emerald Sinergi, presenting its business licensing and document administration services and contact information.',
+    technologies: [],
+    image: phloxyEmeraldImage,
+    imageAlt: 'Two overlapping desktop views of the Phloxy Emerald company website showing the homepage and services against a navy background with curved line patterns',
+  },
+  {
+    id: 'sigtech',
+    title: 'SIGTECH',
+    company: 'PT. Selaras Inti Gemilang',
+    category: 'Industrial product catalog',
+    filters: [],
+    role: 'Freelance',
+    period: '',
+    description: 'A company website and product catalog for PT. Selaras Inti Gemilang (SIGTECH), featuring bridge bearings, expansion joints, and product information.',
+    technologies: [],
+    image: sigtechImage,
+    imageAlt: 'Three overlapping SIGTECH desktop website views showing the homepage in the center, product details on the left, and catalog on the right against an indigo lavender background with curved lines',
+  },
+  {
+    id: 'butterfly-vacations',
+    title: 'Butterfly Vacations',
+    company: 'Butterflies (Pvt) Ltd',
+    category: 'Travel website',
+    filters: [],
+    role: 'Freelance',
+    period: '',
+    description: 'A travel website for Butterflies (Pvt) Ltd, presenting Sri Lanka tour arrangements, private and group holidays, accommodation, transport, sightseeing, and special events.',
+    technologies: [],
+    image: butterflyVacationImage,
+    imageAlt: 'Three overlapping Butterfly Vacations website views showing the homepage in the center with travel services and Sri Lanka tour content on the sides against a teal, turquoise, and coral travel background',
+  },
+  {
+    id: 'aprdi',
+    title: 'APRDI',
+    company: 'Dewan Asosiasi Pelaku Reksa Dana dan Investasi Indonesia',
+    category: 'Association website',
+    filters: [],
+    role: 'Freelance',
+    period: '',
+    description: 'An association website for Dewan APRDI, presenting professional training, investment education, association information, and member organizations.',
+    technologies: [],
+    image: aprdiImage,
+    imageAlt: 'APRDI association homepage displayed in a browser mockup against a blue gradient background',
+  },
+  {
+    id: 'gesundheit-jobs',
+    title: 'GESUNDHEIT.JOBS',
+    company: 'GESUNDHEIT.JOBS',
+    category: 'Healthcare job portal',
+    filters: [],
+    role: 'Freelance',
+    period: '',
+    description: 'A German healthcare job portal featuring job search, current vacancies, occupational categories, regional opportunities, and employer information.',
+    technologies: [],
+    image: gesundheitImage,
+    imageAlt: 'GESUNDHEIT.JOBS healthcare job search homepage displayed in a browser mockup against a blue green gradient background',
+  },
+]
+
+export const portfolios = [...experiencePortfolios, ...additionalPortfolios]
+
+export const services = [
+  { id: 'web-development', title: 'Web Development', description: 'Web Development' },
+  { id: 'mobile-development', title: 'Mobile Development', description: 'Mobile Development' },
+  { id: 'ui-ux-design', title: 'UI/UX Design', description: 'UI/UX Design' },
+]
 
 export const education = [
   { date: '2015 — 2019', degree: "Bachelor's Degree in Information Systems", school: 'University Mercu Buana', gpa: 'GPA 3.28' },
@@ -149,16 +651,17 @@ export const skills = [
 export const certifications = [
   { number: '01', name: 'Full-Stack JavaScript Developer', issuer: 'BuiltWithAngga' },
   { number: '02', name: 'React — The Complete Guide', issuer: 'Udemy' },
-  { number: '03', name: 'Build Highly Engaging Vue JS Apps with Nuxt.js', issuer: 'Udemy' },
+  { number: '03', name: 'Build Vue JS Apps with Nuxt.js', issuer: 'Udemy' },
 ]
 
 export const languages = ['Indonesian · Native', 'English · Conversational']
 
 export const tabs = [
-  { id: 'portfolio', label: 'Portfolio', count: portfolios.length },
+  { id: 'work', label: 'Work', count: portfolios.length },
+  { id: 'services', label: 'Services', count: services.length },
   { id: 'experience', label: 'Experience', count: experiences.length },
   { id: 'skills', label: 'Skills', count: skills.length },
   { id: 'about', label: 'About' },
 ]
 
-export const defaultTabId = 'portfolio'
+export const defaultTabId = 'work'

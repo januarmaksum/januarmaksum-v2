@@ -52,6 +52,28 @@ const filterAnnouncement = computed(() => {
   return `${count} portfolio ${count === 1 ? 'project' : 'projects'} shown for ${activeFilterLabel.value}.`
 })
 
+function resolvePortfolioImage(image, context) {
+  const resolvedImage = image && typeof image === 'object'
+    ? image[context] ?? image
+    : image
+
+  if (typeof resolvedImage === 'string') {
+    return {
+      sources: [],
+      src: resolvedImage,
+      width: 1536,
+      height: 1024,
+    }
+  }
+
+  return resolvedImage ?? {
+    sources: [],
+    src: '',
+    width: 1536,
+    height: 1024,
+  }
+}
+
 function openPortfolio(portfolio, event) {
   scrollRestoreId += 1
   cancelAnimationFrame(scrollRestoreFrame)
@@ -170,9 +192,9 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <section id="portfolio" :hidden="!active" class="px-[clamp(1rem,5vw,4rem)] py-[clamp(4rem,8vw,8rem)] focus-visible:outline-4 focus-visible:outline-offset-[-6px] focus-visible:outline-blue-600" role="tabpanel" aria-labelledby="tab-portfolio" tabindex="0" data-tab-panel>
+  <section id="work" :hidden="!active" class="px-[clamp(1rem,5vw,4rem)] py-[clamp(4rem,8vw,8rem)] focus-visible:outline-4 focus-visible:outline-offset-[-6px] focus-visible:outline-blue-600" role="tabpanel" aria-labelledby="tab-work" tabindex="0" data-tab-panel>
     <DialogRoot v-model:open="dialogOpen">
-      <div class="mb-8 flex flex-wrap gap-3" role="group" aria-label="Filter portfolio projects">
+      <div class="mb-8 flex-wrap gap-3 !hidden" role="group" aria-label="Filter portfolio projects">
         <button
           v-for="filter in portfolioFilters"
           :key="filter.id"
@@ -214,15 +236,26 @@ onBeforeUnmount(() => {
           />
 
           <div class="aspect-3/2 overflow-hidden border-b-2 border-[#111111] bg-[#111111]">
-            <img
-              class="block size-full object-cover transition-transform duration-200 ease-out group-hover:scale-[1.02] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
-              :src="portfolio.image"
-              width="1536"
-              height="1024"
-              :alt="portfolio.imageAlt"
-              loading="lazy"
-              decoding="async"
-            />
+            <picture v-if="resolvePortfolioImage(portfolio.image, 'card').src" class="block size-full">
+              <source
+                v-for="source in resolvePortfolioImage(portfolio.image, 'card').sources ?? []"
+                :key="source.type"
+                :type="source.type"
+                :srcset="source.srcset"
+                sizes="(min-width: 1280px) 520px, (min-width: 768px) 50vw, 100vw"
+              />
+              <img
+                class="block size-full object-cover transition-transform duration-200 ease-out group-hover:scale-[1.02] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+                :src="resolvePortfolioImage(portfolio.image, 'card').src"
+                :srcset="resolvePortfolioImage(portfolio.image, 'card').srcset"
+                sizes="(min-width: 1280px) 520px, (min-width: 768px) 50vw, 100vw"
+                :width="resolvePortfolioImage(portfolio.image, 'card').width"
+                :height="resolvePortfolioImage(portfolio.image, 'card').height"
+                :alt="portfolio.imageAlt"
+                loading="lazy"
+                decoding="async"
+              />
+            </picture>
           </div>
 
           <div class="flex flex-1 flex-col p-[clamp(1.15rem,2.5vw,1.6rem)]">
@@ -246,16 +279,27 @@ onBeforeUnmount(() => {
             <X class="size-6" :stroke-width="2.5" aria-hidden="true" />
           </DialogClose>
 
-          <img
-            class="block aspect-3/2 w-full border-b-2 border-[#111111] bg-[#111111] object-contain"
-            :src="selectedPortfolio.image"
-            width="1536"
-            height="1024"
-            :alt="selectedPortfolio.imageAlt"
-            decoding="async"
-          />
+          <picture v-if="resolvePortfolioImage(selectedPortfolio.image, 'modal').src" class="block w-full">
+            <source
+              v-for="source in resolvePortfolioImage(selectedPortfolio.image, 'modal').sources ?? []"
+              :key="source.type"
+              :type="source.type"
+              :srcset="source.srcset"
+              sizes="min(1152px, calc(100vw - 2rem))"
+            />
+            <img
+              class="block aspect-3/2 w-full border-b-2 border-[#111111] bg-[#111111] object-contain"
+              :src="resolvePortfolioImage(selectedPortfolio.image, 'modal').src"
+              :srcset="resolvePortfolioImage(selectedPortfolio.image, 'modal').srcset"
+              sizes="min(1152px, calc(100vw - 2rem))"
+              :width="resolvePortfolioImage(selectedPortfolio.image, 'modal').width"
+              :height="resolvePortfolioImage(selectedPortfolio.image, 'modal').height"
+              :alt="selectedPortfolio.imageAlt"
+              decoding="async"
+            />
+          </picture>
 
-          <div class="p-[clamp(1.25rem,4vw,3rem)]">
+          <div class="p-[clamp(1.25rem,4vw,3rem)]" :class="{ 'pt-20': !resolvePortfolioImage(selectedPortfolio.image, 'modal').src }">
             <p class="font-mono text-[0.72rem] font-extrabold uppercase leading-[1.55] tracking-widest text-[#c53a18]">{{ selectedPortfolio.company }} · {{ selectedPortfolio.category }}</p>
             <DialogTitle as="h2" class="mt-3 max-w-4xl font-['Archivo',ui-sans-serif,system-ui,sans-serif] text-[clamp(2rem,6vw,5rem)] font-black uppercase leading-[0.9] tracking-[-0.055em]">
               {{ selectedPortfolio.title }}
@@ -263,14 +307,14 @@ onBeforeUnmount(() => {
 
             <div class="mt-6 grid gap-2 border-y-2 border-[#111111] py-4 font-mono text-[0.72rem] font-extrabold uppercase leading-[1.55] tracking-[0.06em] sm:grid-cols-2">
               <p>{{ selectedPortfolio.role }}</p>
-              <p class="sm:text-right">{{ selectedPortfolio.period }}</p>
+              <p v-if="selectedPortfolio.period" class="sm:text-right">{{ selectedPortfolio.period }}</p>
             </div>
 
             <DialogDescription as="p" class="mt-7 max-w-[75ch] text-[clamp(1rem,2vw,1.15rem)] leading-[1.75] text-[#3f3d38]">
               {{ selectedPortfolio.description }}
             </DialogDescription>
 
-            <div class="mt-8">
+            <div v-if="selectedPortfolio.technologies.length" class="mt-8">
               <h3 class="font-mono text-[0.7rem] font-extrabold uppercase tracking-[0.12em]">Technology stack</h3>
               <ul class="mt-3 flex list-none flex-wrap gap-2">
                 <li v-for="technology in selectedPortfolio.technologies" :key="technology" class="border-2 border-[#111111] bg-white px-3 py-2 font-mono text-[0.7rem] font-extrabold uppercase tracking-[0.04em] [box-shadow:3px_3px_0_#e8ff3f]">

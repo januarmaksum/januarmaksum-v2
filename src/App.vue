@@ -7,6 +7,7 @@ import HeroSection from '@/components/HeroSection.vue'
 import PortfolioPanel from '@/components/PortfolioPanel.vue'
 import ProfileOverview from '@/components/ProfileOverview.vue'
 import SectionTabs from '@/components/SectionTabs.vue'
+import ServicesPanel from '@/components/ServicesPanel.vue'
 import SkillsPanel from '@/components/SkillsPanel.vue'
 import { usePortfolioMotion } from '@/composables/usePortfolioMotion'
 import {
@@ -19,6 +20,7 @@ import {
   portfolios,
   skills,
   socialLinks,
+  services,
   tabs,
   technologies,
 } from '@/data/portfolio'
@@ -45,7 +47,8 @@ usePortfolioMotion(root, activeTab)
       <SectionTabs v-model="activeTab" :tabs="tabs" />
 
       <main id="main-content">
-        <PortfolioPanel :active="activeTab === 'portfolio'" :portfolios="portfolios" />
+        <PortfolioPanel :active="activeTab === 'work'" :portfolios="portfolios" />
+        <ServicesPanel :active="activeTab === 'services'" :services="services" />
         <ExperiencePanel :active="activeTab === 'experience'" :experiences="experiences" />
         <SkillsPanel :active="activeTab === 'skills'" :skills="skills" />
         <AboutPanel :active="activeTab === 'about'" :certifications="certifications" :education="education" :languages="languages" />
