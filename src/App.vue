@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue'
+import { nextTick, ref } from 'vue'
 import AboutPanel from '@/components/AboutPanel.vue'
 import AmbientWaves from '@/components/AmbientWaves.vue'
 import ExperiencePanel from '@/components/ExperiencePanel.vue'
@@ -22,13 +22,26 @@ import {
   socialLinks,
   services,
   tabs,
-  technologies,
 } from '@/data/portfolio'
 
 const root = ref(null)
 const activeTab = ref(
   tabs.some((tab) => tab.id === defaultTabId) ? defaultTabId : tabs[0].id,
 )
+
+const contactHref = socialLinks.find((link) => link.icon === 'mail').href
+
+const viewWork = async () => {
+  activeTab.value = 'work'
+  await nextTick()
+
+  const panel = root.value?.querySelector('#work')
+  panel?.focus({ preventScroll: true })
+  panel?.scrollIntoView({
+    behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth',
+    block: 'start',
+  })
+}
 
 usePortfolioMotion(root, activeTab)
 </script>
@@ -40,7 +53,7 @@ usePortfolioMotion(root, activeTab)
 
     <div class="relative z-10 mx-auto min-h-[calc(100dvh-(clamp(10px,2.5vw,40px)*2))] w-full max-w-300 overflow-clip border-2 border-[#111111] bg-[#F2ECE1] shadow-[clamp(6px,1vw,12px)_clamp(6px,1vw,12px)_0_#ff5c35]">
       <header id="profile">
-        <HeroSection :technologies="technologies" />
+        <HeroSection :contact-href="contactHref" @view-work="viewWork" />
         <ProfileOverview :availability-modes="availabilityModes" :social-links="socialLinks" />
       </header>
 
