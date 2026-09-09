@@ -629,9 +629,12 @@ const additionalPortfolios = [
 export const portfolios = [...experiencePortfolios, ...additionalPortfolios]
 
 export const services = [
-  { id: 'web-development', title: 'Web Development', description: 'Web Development' },
-  { id: 'mobile-development', title: 'Mobile Development', description: 'Mobile Development' },
-  { id: 'ui-ux-design', title: 'UI/UX Design', description: 'UI/UX Design' },
+  { id: 'company-profile-website', title: 'Company Profile Website', description: 'Present your business, services, and contact information in a website that works across screen sizes.' },
+  { id: 'web-development', title: 'Web Application', description: 'Build web applications around the tasks your customers and team need to complete.' },
+  { id: 'mobile-development', title: 'Mobile Application', description: 'Develop mobile applications with React Native, Expo, or Ionic.' },
+  { id: 'seo-geo-optimization', title: 'SEO Optimization', description: 'Improve your website’s structure and content so search engines and AI search tools can understand it.' },
+  { id: 'ui-ux-design', title: 'UI/UX Design', description: 'Plan user flows and design interfaces that make navigation and everyday tasks clear.' },
+  { id: 'maintenance-support', title: 'Maintenance & Support', description: 'Fix bugs, update dependencies, and improve existing features as your product changes.' },
 ]
 
 export const education = [
