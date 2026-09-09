@@ -1,5 +1,9 @@
 <script setup>
 import { ArrowRight } from '@lucide/vue'
+import aboutPortrait144Avif from '@/assets/about-portrait-v1-144.avif'
+import aboutPortrait144Webp from '@/assets/about-portrait-v1-144.webp'
+import aboutPortrait288Avif from '@/assets/about-portrait-v1-288.avif'
+import aboutPortrait288Webp from '@/assets/about-portrait-v1-288.webp'
 import aboutPortraitUrl from '@/assets/about-portrait-v1.png'
 
 defineProps({
@@ -15,7 +19,19 @@ defineProps({
     <div>
       <div class="flex items-center gap-[clamp(1rem,4vw,2rem)]">
         <div class="size-[clamp(5.5rem,18vw,9rem)] shrink-0 overflow-hidden rounded-full border-[3px] border-[#111111] bg-[#e8ff3f] [box-shadow:5px_5px_0_#ff5c35] md:border-4 md:[box-shadow:7px_7px_0_#ff5c35]">
-          <img class="block size-full object-cover" :src="aboutPortraitUrl" width="1254" height="1254" alt="Portrait of Januar Maksum" loading="lazy" decoding="async" />
+          <picture class="block size-full">
+            <source
+              type="image/avif"
+              :srcset="`${aboutPortrait144Avif} 144w, ${aboutPortrait288Avif} 288w`"
+              sizes="(min-width: 800px) 144px, (min-width: 489px) 18vw, 88px"
+            />
+            <source
+              type="image/webp"
+              :srcset="`${aboutPortrait144Webp} 144w, ${aboutPortrait288Webp} 288w`"
+              sizes="(min-width: 800px) 144px, (min-width: 489px) 18vw, 88px"
+            />
+            <img class="block size-full object-cover" :src="aboutPortraitUrl" width="1254" height="1254" alt="Portrait of Januar Maksum" loading="lazy" decoding="async" />
+          </picture>
         </div>
         <h2 class="flex min-w-0 flex-1 flex-wrap items-center gap-x-3 gap-y-1 font-['Archivo',ui-sans-serif,system-ui,sans-serif] text-[clamp(2rem,7vw,4rem)] font-black leading-[0.95] tracking-tighter">
           <span class="min-w-0 text-balance">Hi, I'm Januar</span>

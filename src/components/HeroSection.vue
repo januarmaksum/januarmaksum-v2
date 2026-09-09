@@ -1,5 +1,9 @@
 <script setup>
 import { siExpress, siNextdotjs, siNodedotjs, siReact, siTypescript } from 'simple-icons'
+import portrait640Avif from '@/assets/januar-maksum-640.avif'
+import portrait640Webp from '@/assets/januar-maksum-640.webp'
+import portrait1231Avif from '@/assets/januar-maksum-1231.avif'
+import portrait1231Webp from '@/assets/januar-maksum-1231.webp'
 import portraitUrl from '@/assets/januar-maksum.png'
 
 defineProps({ technologies: { type: Array, required: true } })
@@ -69,15 +73,27 @@ const icons = {
 
       <div id="hero-artwork" data-motion="hero-artwork" class="flex h-[min(118vw,34rem)] w-full min-w-0 items-center md:h-auto md:w-2/4 md:self-stretch">
         <div data-motion="hero-portrait" class="relative aspect-1218/1292 w-[min(86vw,25rem)] shrink-0 md:w-[90%] lg:w-[85%]">
-          <img
-            class="pointer-events-none block size-full object-contain object-center"
-            :src="portraitUrl"
-            width="1218"
-            height="1292"
-            alt="Portrait of Januar Maksum"
-            loading="eager"
-            fetchpriority="high"
-          />
+          <picture class="block size-full">
+            <source
+              type="image/avif"
+              :srcset="`${portrait640Avif} 640w, ${portrait1231Avif} 1231w`"
+              sizes="(min-width: 1024px) 42.5vw, (min-width: 768px) 45vw, (min-width: 465px) 400px, 86vw"
+            />
+            <source
+              type="image/webp"
+              :srcset="`${portrait640Webp} 640w, ${portrait1231Webp} 1231w`"
+              sizes="(min-width: 1024px) 42.5vw, (min-width: 768px) 45vw, (min-width: 465px) 400px, 86vw"
+            />
+            <img
+              class="pointer-events-none block size-full object-contain object-center"
+              :src="portraitUrl"
+              width="1231"
+              height="1277"
+              alt="Portrait of Januar Maksum"
+              loading="eager"
+              fetchpriority="high"
+            />
+          </picture>
         </div>
       </div>
     </div>
