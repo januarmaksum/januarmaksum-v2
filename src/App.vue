@@ -29,7 +29,7 @@ const activeTab = ref(
   tabs.some((tab) => tab.id === defaultTabId) ? defaultTabId : tabs[0].id,
 )
 
-const contactHref = socialLinks.find((link) => link.icon === 'mail').href
+const contactHref = socialLinks.find((link) => link.icon === 'whatsapp').href
 
 const viewWork = async () => {
   activeTab.value = 'work'

@@ -397,9 +397,10 @@ export const technologies = [
 export const availabilityModes = ['Remote', 'On-site', 'Hybrid', 'Freelance', 'Part-time']
 
 export const socialLinks = [
-  { label: 'Contact me', href: 'mailto:januarmaksum@gmail.com', icon: 'mail' },
+  { label: 'Contact me', href: 'https://wa.me/6281282074997', icon: 'whatsapp', external: true },
   { label: 'LinkedIn', href: 'https://www.linkedin.com/in/januarmaksum', icon: 'linkedin', external: true },
   { label: 'GitHub', href: 'https://github.com/januarmaksum', icon: 'github', external: true },
+  { label: "Resume", href: "/resume.pdf", icon: "file-lines", external: true }
 ]
 
 export const experiences = [
