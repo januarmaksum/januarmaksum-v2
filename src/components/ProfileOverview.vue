@@ -3,6 +3,7 @@ import ProfileGridScan from '@/components/ProfileGridScan.vue'
 
 defineProps({
   availabilityModes: { type: Array, required: true },
+  resumeLink: { type: Object, required: true },
   socialLinks: { type: Array, required: true },
 })
 
@@ -21,12 +22,26 @@ defineProps({
         <p class="max-w-176 text-pretty text-base leading-relaxed text-white/65">
           Full-stack developer · Frontend (React, Vue) · Mobile (React Native) · Backend (Express.js)
         </p>
-        <div data-motion="availability" class="mt-7 block w-[calc(100%-6px)] border-2 border-white bg-[#242424] text-white shadow-[4px_4px_0_#ff5c35] md:inline-grid md:w-fit md:max-w-[calc(100%-6px)] md:grid-cols-[max-content_minmax(0,1fr)]">
-          <div class="flex w-full items-center gap-[0.55rem] bg-[#e8ff3f] px-1 py-1.5 text-[0.78rem] font-extrabold uppercase tracking-[0.03em] text-[#111111] md:w-auto">
+        <div data-motion="availability" class="mt-7 grid w-[calc(100%-6px)] grid-cols-[minmax(0,1fr)_max-content] grid-rows-[auto_auto] justify-start gap-x-2 text-white lg:inline-grid lg:w-fit lg:max-w-[calc(100%-6px)] lg:grid-cols-[max-content_minmax(0,1fr)_auto] lg:gap-x-0">
+          <div class="flex min-h-11 items-center border-2 border-white bg-[#e8ff3f] px-2 text-[0.78rem] font-extrabold uppercase tracking-[0.03em] text-[#111111] shadow-[4px_4px_0_#ff5c35]">
             <span>Open to work</span>
           </div>
-          <div class="flex min-w-0 flex-wrap border-t border-white/30 md:border-t-0">
-            <span v-for="mode in availabilityModes" :key="mode" class="inline-flex basis-28 flex-auto justify-center whitespace-nowrap border-l border-white/30 px-1.5 py-[0.6rem] font-mono text-[0.65rem] font-extrabold uppercase tracking-[0.04em] md:basis-auto">
+          <a
+            class="flex min-h-11 touch-manipulation items-center justify-center gap-2 whitespace-nowrap border-2 border-white bg-[#242424] px-3 font-mono text-[0.7rem] font-extrabold uppercase tracking-[0.04em] text-white no-underline shadow-[4px_4px_0_#ff5c35] transition-[background-color,color,box-shadow,transform] duration-160 ease-[ease] hover:bg-[#e8ff3f] hover:text-[#111111] hover:shadow-[2px_2px_0_#ff5c35] hover:transform-[translate(2px,2px)] active:shadow-none active:transform-[translate(4px,4px)] focus-visible:outline-4 focus-visible:outline-offset-[3px] focus-visible:outline-blue-600 motion-reduce:transition-none lg:col-start-3 lg:row-start-1 lg:ml-3"
+            :href="resumeLink.href"
+            :target="resumeLink.external ? '_blank' : undefined"
+            :rel="resumeLink.external ? 'noopener noreferrer' : undefined"
+          >
+            <span>{{ resumeLink.label }}</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="size-4 shrink-0" viewBox="0 0 16 16" aria-hidden="true">
+              <path d="M0 0h16v16H0z" fill="none" />
+              <path fill="currentColor" d="M8 4.5A1.25 1.25 0 1 0 8 2a1.25 1.25 0 0 0 0 2.5" />
+              <path fill="currentColor" d="M8 4.5c.597 0 1.13.382 1.32.949l.087.26a.22.22 0 0 1-.21.291h-2.39a.222.222 0 0 1-.21-.291l.087-.26a1.39 1.39 0 0 1 1.32-.949zm-3 4a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1z" />
+              <path fill="currentColor" fill-rule="evenodd" d="M2.33 1.64c-.327.642-.327 1.48-.327 3.16v6.4c0 1.68 0 2.52.327 3.16a3.02 3.02 0 0 0 1.31 1.31c.642.327 1.48.327 3.16.327h2.4c1.68 0 2.52 0 3.16-.327a3 3 0 0 0 1.31-1.31c.327-.642.327-1.48.327-3.16V4.8c0-1.68 0-2.52-.327-3.16A3 3 0 0 0 12.36.33C11.718.003 10.88.003 9.2.003H6.8c-1.68 0-2.52 0-3.16.327a3.02 3.02 0 0 0-1.31 1.31m6.87-.638H6.8c-.857 0-1.44 0-1.89.038c-.438.035-.663.1-.819.18a2 2 0 0 0-.874.874c-.08.156-.145.38-.18.819c-.037.45-.038 1.03-.038 1.89v6.4c0 .857.001 1.44.038 1.89c.036.438.101.663.18.819c.192.376.498.682.874.874c.156.08.381.145.819.18c.45.036 1.03.037 1.89.037h2.4c.857 0 1.44 0 1.89-.037c.438-.036.663-.101.819-.18c.376-.192.682-.498.874-.874c.08-.156.145-.381.18-.82c.037-.45.038-1.03.038-1.89v-6.4c0-.856-.001-1.44-.038-1.89c-.036-.437-.101-.662-.18-.818a2 2 0 0 0-.874-.874c-.156-.08-.381-.145-.819-.18c-.45-.037-1.03-.038-1.89-.038" clip-rule="evenodd" />
+            </svg>
+          </a>
+          <div class="col-span-2 flex min-h-11 w-full min-w-0 flex-wrap border-2 border-white bg-[#242424] shadow-[4px_4px_0_#ff5c35] lg:col-span-1 lg:col-start-2 lg:row-start-1 lg:border-l-0">
+            <span v-for="mode in availabilityModes" :key="mode" class="inline-flex basis-28 flex-auto items-center justify-center whitespace-nowrap border-l border-white/30 px-1.5 py-[0.6rem] font-mono text-[0.65rem] font-extrabold uppercase tracking-[0.04em] first:border-l-0 lg:basis-auto">
               {{ mode }}
             </span>
           </div>

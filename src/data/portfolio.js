@@ -400,8 +400,9 @@ export const socialLinks = [
   { label: 'Contact me', href: 'https://wa.me/6281282074997', icon: 'whatsapp', external: true },
   { label: 'LinkedIn', href: 'https://www.linkedin.com/in/januarmaksum', icon: 'linkedin', external: true },
   { label: 'GitHub', href: 'https://github.com/januarmaksum', icon: 'github', external: true },
-  { label: "Resume", href: "/resume.pdf", icon: "file-lines", external: true }
 ]
+
+export const resumeLink = { label: 'Download Resume', href: '/resume.pdf', icon: 'file-lines', external: true }
 
 export const experiences = [
   {
@@ -662,8 +663,8 @@ export const languages = ['Indonesian · Native', 'English · Conversational']
 
 export const tabs = [
   { id: 'work', label: 'Work', count: portfolios.length },
-  { id: 'services', label: 'Services', count: services.length },
   { id: 'experience', label: 'Experience', count: experiences.length },
+  { id: 'services', label: 'Services', count: services.length },
   { id: 'skills', label: 'Skills', count: skills.length },
   { id: 'about', label: 'About' },
 ]

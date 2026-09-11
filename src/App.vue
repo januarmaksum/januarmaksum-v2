@@ -18,6 +18,7 @@ import {
   experiences,
   languages,
   portfolios,
+  resumeLink,
   skills,
   socialLinks,
   services,
@@ -54,7 +55,7 @@ usePortfolioMotion(root, activeTab)
     <div class="relative z-10 mx-auto min-h-[calc(100dvh-(clamp(10px,2.5vw,40px)*2))] w-full max-w-300 overflow-clip border-2 border-[#111111] bg-[#F2ECE1] shadow-[clamp(6px,1vw,12px)_clamp(6px,1vw,12px)_0_#ff5c35]">
       <header id="profile">
         <HeroSection :contact-href="contactHref" @view-work="viewWork" />
-        <ProfileOverview :availability-modes="availabilityModes" :social-links="socialLinks" />
+        <ProfileOverview :availability-modes="availabilityModes" :resume-link="resumeLink" :social-links="socialLinks" />
       </header>
 
       <SectionTabs v-model="activeTab" :tabs="tabs" />
