@@ -84,7 +84,7 @@ defineProps({
           <li v-for="item in education" :key="item.degree" class="grid grid-cols-[minmax(6.75rem,max-content)_minmax(0,1fr)] items-start gap-4 border-b-2 border-[#111111] py-[clamp(1.25rem,3vw,2rem)] last:border-b-0">
             <span class="whitespace-nowrap font-mono text-xs font-extrabold">{{ item.date }}</span>
             <div class="min-w-0">
-              <h3 class="font-['Archivo',ui-sans-serif,system-ui,sans-serif] text-[clamp(1.25rem,3vw,2rem)] font-black uppercase leading-[1.15] tracking-[-0.03em] wrap-anywhere">{{ item.degree }}</h3>
+              <h3 class="font-['Archivo',ui-sans-serif,system-ui,sans-serif] text-[clamp(1.25rem,3vw,1.5rem)] font-black uppercase leading-[1.15] tracking-[-0.03em] wrap-anywhere">{{ item.degree }}</h3>
               <p class="mt-1.5 text-[#67645d]">{{ item.school }}</p>
             </div>
           </li>
