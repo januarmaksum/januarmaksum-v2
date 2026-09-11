@@ -1,10 +1,9 @@
 <script setup>
 import { computed, nextTick, onBeforeUnmount, ref } from 'vue'
-import { ArrowLeft, ArrowRight, X } from '@lucide/vue'
+import { ArrowLeft, ArrowRight } from '@lucide/vue'
 import { gsap } from 'gsap'
 import { Flip } from 'gsap/Flip'
 import {
-  DialogClose,
   DialogContent,
   DialogDescription,
   DialogOverlay,
@@ -315,11 +314,11 @@ onBeforeUnmount(() => {
       </div>
 
       <DialogPortal v-if="selectedPortfolio">
-        <DialogOverlay class="fixed inset-0 z-80 bg-black/75" />
-        <DialogContent class="fixed left-1/2 top-1/2 z-90 w-[calc(100%-2rem)] max-w-none -translate-x-1/2 -translate-y-1/2 focus-visible:outline-4 focus-visible:outline-offset-[3px] focus-visible:outline-blue-600 sm:w-[calc(100%-3rem)]" :style="{ maxWidth: modalMaxWidth }" @keydown="handleDialogKeydown" @close-auto-focus="handleCloseAutoFocus">
+        <DialogOverlay class="portfolio-dialog-overlay fixed inset-0 z-80 bg-black/75" />
+        <DialogContent class="portfolio-dialog-content fixed inset-x-0 bottom-0 z-90 w-full max-w-none focus-visible:outline-4 focus-visible:outline-offset-[3px] focus-visible:outline-blue-600 md:bottom-auto md:left-1/2 md:right-auto md:top-1/2 md:w-[calc(100%-3rem)] md:-translate-x-1/2 md:-translate-y-1/2" :style="{ maxWidth: modalMaxWidth }" @keydown="handleDialogKeydown" @close-auto-focus="handleCloseAutoFocus">
           <button
             type="button"
-            class="absolute left-3 top-1/2 z-20 inline-flex size-11 -translate-y-1/2 touch-manipulation cursor-pointer items-center justify-center border-2 border-[#111111] bg-[#e8ff3f] text-[#111111] [box-shadow:4px_4px_0_#111111] transition-[background-color,color,box-shadow,transform] duration-160 hover:bg-[#111111] hover:text-[#e8ff3f] active:[box-shadow:none] active:translate-x-0.5 active:translate-y-[calc(-50%+2px)] focus-visible:outline-4 focus-visible:outline-offset-[3px] focus-visible:outline-blue-600 motion-reduce:transition-none lg:hidden"
+            class="absolute left-3 top-1/2 z-20 hidden size-11 -translate-y-1/2 touch-manipulation cursor-pointer items-center justify-center border-2 border-[#111111] bg-[#e8ff3f] text-[#111111] [box-shadow:4px_4px_0_#111111] transition-[background-color,color,box-shadow,transform] duration-160 hover:bg-[#111111] hover:text-[#e8ff3f] active:[box-shadow:none] active:translate-x-0.5 active:translate-y-[calc(-50%+2px)] focus-visible:outline-4 focus-visible:outline-offset-[3px] focus-visible:outline-blue-600 motion-reduce:transition-none md:inline-flex lg:hidden"
             :aria-label="`Previous project: ${previousPortfolio?.title}`"
             @click="navigatePortfolio(-1)"
           >
@@ -327,7 +326,7 @@ onBeforeUnmount(() => {
           </button>
           <button
             type="button"
-            class="absolute right-3 top-1/2 z-20 inline-flex size-11 -translate-y-1/2 touch-manipulation cursor-pointer items-center justify-center border-2 border-[#111111] bg-[#e8ff3f] text-[#111111] [box-shadow:4px_4px_0_#111111] transition-[background-color,color,box-shadow,transform] duration-160 hover:bg-[#111111] hover:text-[#e8ff3f] active:[box-shadow:none] active:-translate-x-0.5 active:translate-y-[calc(-50%+2px)] focus-visible:outline-4 focus-visible:outline-offset-[3px] focus-visible:outline-blue-600 motion-reduce:transition-none lg:hidden"
+            class="absolute right-3 top-1/2 z-20 hidden size-11 -translate-y-1/2 touch-manipulation cursor-pointer items-center justify-center border-2 border-[#111111] bg-[#e8ff3f] text-[#111111] [box-shadow:4px_4px_0_#111111] transition-[background-color,color,box-shadow,transform] duration-160 hover:bg-[#111111] hover:text-[#e8ff3f] active:[box-shadow:none] active:-translate-x-0.5 active:translate-y-[calc(-50%+2px)] focus-visible:outline-4 focus-visible:outline-offset-[3px] focus-visible:outline-blue-600 motion-reduce:transition-none md:inline-flex lg:hidden"
             :aria-label="`Next project: ${nextPortfolio?.title}`"
             @click="navigatePortfolio(1)"
           >
@@ -352,11 +351,7 @@ onBeforeUnmount(() => {
 
           <p class="sr-only" aria-live="polite" aria-atomic="true">{{ portfolioAnnouncement }}</p>
 
-          <div class="relative max-h-[calc(100dvh-2rem)] overflow-y-auto overscroll-contain border-2 border-[#111111] bg-[#F2ECE1] [box-shadow:8px_8px_0_#111111] md:max-h-[calc(100dvh-3rem)]">
-            <DialogClose class="absolute right-3 top-3 z-10 inline-flex size-12 touch-manipulation cursor-pointer items-center justify-center border-2 border-[#111111] bg-[#e8ff3f] text-[#111111] [box-shadow:4px_4px_0_#111111] transition-[background-color,color,box-shadow,transform] duration-160 hover:bg-[#111111] hover:text-[#e8ff3f] active:[box-shadow:none] active:transform-[translate(3px,3px)] focus-visible:outline-4 focus-visible:outline-offset-[3px] focus-visible:outline-blue-600 motion-reduce:duration-[0.01ms]" aria-label="Close project details">
-              <X class="size-6" :stroke-width="2.5" aria-hidden="true" />
-            </DialogClose>
-
+          <div class="relative max-h-[78dvh] overflow-y-auto overscroll-contain rounded-t-[1.25rem] border-2 border-[#111111] bg-[#F2ECE1] [box-shadow:8px_8px_0_#111111] md:max-h-[calc(100dvh-3rem)] md:rounded-none">
             <picture v-if="resolvePortfolioImage(selectedPortfolio.image, 'modal').src" class="block w-full">
               <source
                 v-for="source in resolvePortfolioImage(selectedPortfolio.image, 'modal').sources ?? []"
@@ -377,7 +372,7 @@ onBeforeUnmount(() => {
               />
             </picture>
 
-            <div class="p-[clamp(1.25rem,4vw,3rem)]" :class="{ 'pt-20': !resolvePortfolioImage(selectedPortfolio.image, 'modal').src }">
+            <div class="p-[clamp(1.25rem,4vw,3rem)] pb-[max(1.25rem,env(safe-area-inset-bottom))] md:p-[clamp(1.25rem,4vw,3rem)]" :class="{ 'pt-20': !resolvePortfolioImage(selectedPortfolio.image, 'modal').src }">
               <p class="font-mono text-[0.72rem] font-extrabold uppercase leading-[1.55] tracking-widest text-[#c53a18]">{{ selectedPortfolio.company }} · {{ selectedPortfolio.category }}</p>
               <DialogTitle as="h2" class="mt-3 max-w-4xl font-['Archivo',ui-sans-serif,system-ui,sans-serif] text-[clamp(2rem,6vw,5rem)] font-black uppercase leading-[0.9] tracking-[-0.055em]">
                 {{ selectedPortfolio.title }}
@@ -407,3 +402,70 @@ onBeforeUnmount(() => {
     </DialogRoot>
   </section>
 </template>
+
+<style>
+@keyframes portfolio-sheet-enter {
+  from {
+    transform: translateY(100%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes portfolio-sheet-exit {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(100%);
+  }
+}
+
+@keyframes portfolio-overlay-enter {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes portfolio-overlay-exit {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .portfolio-dialog-content[data-state='open'] {
+    animation: portfolio-sheet-enter 320ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .portfolio-dialog-content[data-state='closed'] {
+    animation: portfolio-sheet-exit 180ms cubic-bezier(0.4, 0, 1, 1) both;
+  }
+
+  .portfolio-dialog-overlay[data-state='open'] {
+    animation: portfolio-overlay-enter 220ms ease-out both;
+  }
+
+  .portfolio-dialog-overlay[data-state='closed'] {
+    animation: portfolio-overlay-exit 160ms ease-in both;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .portfolio-dialog-content,
+  .portfolio-dialog-overlay {
+    animation: none !important;
+  }
+}
+</style>

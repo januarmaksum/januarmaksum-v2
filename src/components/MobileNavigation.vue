@@ -1,5 +1,5 @@
 <script setup>
-import { BriefcaseBusiness, History, PanelsTopLeft, Sparkles, UserRound } from '@lucide/vue'
+import { BriefcaseBusiness, Rocket, CodeXml, Sparkles, CircleUserRound } from '@lucide/vue'
 
 const props = defineProps({
   tabs: { type: Array, required: true },
@@ -9,11 +9,11 @@ const props = defineProps({
 const emit = defineEmits(['update:modelValue'])
 
 const icons = {
-  work: BriefcaseBusiness,
-  experience: History,
-  services: PanelsTopLeft,
-  skills: Sparkles,
-  about: UserRound,
+  work: Rocket,
+  experience: BriefcaseBusiness,
+  services: Sparkles,
+  skills: CodeXml,
+  about: CircleUserRound,
 }
 
 function selectTab(tab) {
@@ -22,7 +22,7 @@ function selectTab(tab) {
 </script>
 
 <template>
-  <nav class="fixed inset-x-0 bottom-0 z-40 border-t-2 border-[#111111] bg-[#F2ECE1] px-2 pb-[max(0.5rem,env(safe-area-inset-bottom))] pt-2 md:hidden" aria-label="Portfolio sections">
+  <nav class="fixed inset-x-0 bottom-0 z-40 md:hidden" aria-label="Portfolio sections">
     <div class="mx-auto flex max-w-300">
       <button
         v-for="tab in tabs"
