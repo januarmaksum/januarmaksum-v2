@@ -70,7 +70,7 @@ defineProps({
           </div>
         </div>
 
-        <a class="mt-[clamp(2rem,5vw,3.5rem)] inline-flex min-h-15 touch-manipulation items-center justify-center gap-4 border-2 border-[#111111] bg-[#e8ff3f] px-5 py-4 font-black uppercase text-[#111111] no-underline [box-shadow:5px_5px_0_#111111] transition-[background-color,color,box-shadow,transform] duration-160 ease-[ease] [&:hover]:bg-[#111111] [&:hover]:text-[#e8ff3f] [&:hover]:transform-[translate(-3px,-3px)] active:[box-shadow:none] active:transform-[translate(4px,4px)] focus-visible:outline-4 focus-visible:outline-offset-[3px] focus-visible:outline-blue-600 sm:ml-22 md:[box-shadow:8px_8px_0_#111111] motion-reduce:duration-[0.01ms]" href="mailto:januarmaksum@gmail.com">
+        <a class="mt-[clamp(2rem,5vw,3.5rem)] inline-flex min-h-15 touch-manipulation items-center justify-center gap-4 border-2 border-[#111111] bg-[#e8ff3f] px-5 py-4 font-black uppercase text-[#111111] no-underline [box-shadow:5px_5px_0_#111111] transition-[background-color,color,box-shadow,transform] duration-160 ease-[ease] [&:hover]:bg-[#111111] [&:hover]:text-[#e8ff3f] [&:hover]:transform-[translate(-3px,-3px)] active:[box-shadow:none] active:transform-[translate(4px,4px)] focus-visible:outline-4 focus-visible:outline-offset-[3px] focus-visible:outline-blue-600 sm:ml-22 md:[box-shadow:8px_8px_0_#111111] motion-reduce:duration-[0.01ms]" href="https://wa.me/6281282074997">
           Start a conversation
           <ArrowRight class="size-5 shrink-0" :stroke-width="2" aria-hidden="true" />
         </a>
