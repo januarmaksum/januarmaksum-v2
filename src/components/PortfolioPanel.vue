@@ -1,6 +1,6 @@
 <script setup>
 import { computed, nextTick, onBeforeUnmount, ref } from 'vue'
-import { ArrowRight, X } from '@lucide/vue'
+import { ArrowLeft, ArrowRight, X } from '@lucide/vue'
 import { gsap } from 'gsap'
 import { Flip } from 'gsap/Flip'
 import {
@@ -13,7 +13,11 @@ import {
   DialogTitle,
 } from 'reka-ui'
 
-const props = defineProps({ portfolios: { type: Array, required: true }, active: Boolean })
+const props = defineProps({
+  portfolios: { type: Array, required: true },
+  modalMaxWidth: { type: String, default: '800px' },
+  active: Boolean,
+})
 
 gsap.registerPlugin(Flip)
 
@@ -52,6 +56,25 @@ const filterAnnouncement = computed(() => {
   return `${count} portfolio ${count === 1 ? 'project' : 'projects'} shown for ${activeFilterLabel.value}.`
 })
 
+const selectedPortfolioIndex = computed(() => (
+  props.portfolios.findIndex((portfolio) => portfolio.id === selectedPortfolio.value?.id)
+))
+
+const previousPortfolio = computed(() => {
+  if (!props.portfolios.length || selectedPortfolioIndex.value < 0) return null
+  return props.portfolios[(selectedPortfolioIndex.value - 1 + props.portfolios.length) % props.portfolios.length]
+})
+
+const nextPortfolio = computed(() => {
+  if (!props.portfolios.length || selectedPortfolioIndex.value < 0) return null
+  return props.portfolios[(selectedPortfolioIndex.value + 1) % props.portfolios.length]
+})
+
+const portfolioAnnouncement = computed(() => {
+  if (selectedPortfolioIndex.value < 0 || !selectedPortfolio.value) return ''
+  return `Project ${selectedPortfolioIndex.value + 1} of ${props.portfolios.length}: ${selectedPortfolio.value.title}`
+})
+
 function resolvePortfolioImage(image, context) {
   const resolvedImage = image && typeof image === 'object'
     ? image[context] ?? image
@@ -85,6 +108,25 @@ function openPortfolio(portfolio, event) {
   portfolioScrollPosition = { x: window.scrollX, y: window.scrollY }
   selectedPortfolio.value = portfolio
   dialogOpen.value = true
+}
+
+function navigatePortfolio(direction) {
+  if (!props.portfolios.length || selectedPortfolioIndex.value < 0) return
+
+  const nextIndex = (selectedPortfolioIndex.value + direction + props.portfolios.length) % props.portfolios.length
+  selectedPortfolio.value = props.portfolios[nextIndex]
+}
+
+function handleDialogKeydown(event) {
+  if (event.key === 'ArrowLeft') {
+    event.preventDefault()
+    navigatePortfolio(-1)
+  }
+
+  if (event.key === 'ArrowRight') {
+    event.preventDefault()
+    navigatePortfolio(1)
+  }
 }
 
 function handleCloseAutoFocus(event) {
@@ -194,7 +236,7 @@ onBeforeUnmount(() => {
 <template>
   <section id="work" :hidden="!active" class="px-[clamp(1rem,5vw,4rem)] py-[clamp(4rem,8vw,8rem)] focus-visible:outline-4 focus-visible:outline-offset-[-6px] focus-visible:outline-blue-600" role="tabpanel" aria-labelledby="tab-work" tabindex="0" data-tab-panel>
     <DialogRoot v-model:open="dialogOpen">
-      <div class="mb-8 flex-wrap gap-3 !hidden" role="group" aria-label="Filter portfolio projects">
+      <div class="mb-8 flex-wrap gap-3 hidden!" role="group" aria-label="Filter portfolio projects">
         <button
           v-for="filter in portfolioFilters"
           :key="filter.id"
@@ -274,53 +316,90 @@ onBeforeUnmount(() => {
 
       <DialogPortal v-if="selectedPortfolio">
         <DialogOverlay class="fixed inset-0 z-80 bg-black/75" />
-        <DialogContent class="fixed left-1/2 top-1/2 z-90 max-h-[calc(100dvh-2rem)] w-[calc(100%-2rem)] max-w-6xl -translate-x-1/2 -translate-y-1/2 overflow-y-auto overscroll-contain border-2 border-[#111111] bg-[#F2ECE1] [box-shadow:8px_8px_0_#111111] focus-visible:outline-4 focus-visible:outline-offset-[3px] focus-visible:outline-blue-600 sm:w-[calc(100%-3rem)] md:max-h-[calc(100dvh-3rem)]" @close-auto-focus="handleCloseAutoFocus">
-          <DialogClose class="absolute right-3 top-3 z-10 inline-flex size-12 touch-manipulation cursor-pointer items-center justify-center border-2 border-[#111111] bg-[#e8ff3f] text-[#111111] [box-shadow:4px_4px_0_#111111] transition-[background-color,color,box-shadow,transform] duration-160 hover:bg-[#111111] hover:text-[#e8ff3f] active:[box-shadow:none] active:transform-[translate(3px,3px)] focus-visible:outline-4 focus-visible:outline-offset-[3px] focus-visible:outline-blue-600 motion-reduce:duration-[0.01ms]" aria-label="Close project details">
-            <X class="size-6" :stroke-width="2.5" aria-hidden="true" />
-          </DialogClose>
+        <DialogContent class="fixed left-1/2 top-1/2 z-90 w-[calc(100%-2rem)] max-w-none -translate-x-1/2 -translate-y-1/2 focus-visible:outline-4 focus-visible:outline-offset-[3px] focus-visible:outline-blue-600 sm:w-[calc(100%-3rem)]" :style="{ maxWidth: modalMaxWidth }" @keydown="handleDialogKeydown" @close-auto-focus="handleCloseAutoFocus">
+          <button
+            type="button"
+            class="absolute left-3 top-1/2 z-20 inline-flex size-11 -translate-y-1/2 touch-manipulation cursor-pointer items-center justify-center border-2 border-[#111111] bg-[#e8ff3f] text-[#111111] [box-shadow:4px_4px_0_#111111] transition-[background-color,color,box-shadow,transform] duration-160 hover:bg-[#111111] hover:text-[#e8ff3f] active:[box-shadow:none] active:translate-x-0.5 active:translate-y-[calc(-50%+2px)] focus-visible:outline-4 focus-visible:outline-offset-[3px] focus-visible:outline-blue-600 motion-reduce:transition-none lg:hidden"
+            :aria-label="`Previous project: ${previousPortfolio?.title}`"
+            @click="navigatePortfolio(-1)"
+          >
+            <ArrowLeft class="size-6" :stroke-width="2.5" aria-hidden="true" />
+          </button>
+          <button
+            type="button"
+            class="absolute right-3 top-1/2 z-20 inline-flex size-11 -translate-y-1/2 touch-manipulation cursor-pointer items-center justify-center border-2 border-[#111111] bg-[#e8ff3f] text-[#111111] [box-shadow:4px_4px_0_#111111] transition-[background-color,color,box-shadow,transform] duration-160 hover:bg-[#111111] hover:text-[#e8ff3f] active:[box-shadow:none] active:-translate-x-0.5 active:translate-y-[calc(-50%+2px)] focus-visible:outline-4 focus-visible:outline-offset-[3px] focus-visible:outline-blue-600 motion-reduce:transition-none lg:hidden"
+            :aria-label="`Next project: ${nextPortfolio?.title}`"
+            @click="navigatePortfolio(1)"
+          >
+            <ArrowRight class="size-6" :stroke-width="2.5" aria-hidden="true" />
+          </button>
+          <button
+            type="button"
+            class="absolute -left-16 top-1/2 z-20 hidden size-12 -translate-y-1/2 touch-manipulation cursor-pointer items-center justify-center border-2 border-[#111111] bg-[#e8ff3f] text-[#111111] [box-shadow:4px_4px_0_#111111] transition-[background-color,color,box-shadow,transform] duration-160 hover:bg-[#111111] hover:text-[#e8ff3f] active:[box-shadow:none] active:translate-x-0.5 active:translate-y-[calc(-50%+2px)] focus-visible:outline-4 focus-visible:outline-offset-[3px] focus-visible:outline-blue-600 motion-reduce:transition-none lg:inline-flex"
+            :aria-label="`Previous project: ${previousPortfolio?.title}`"
+            @click="navigatePortfolio(-1)"
+          >
+            <ArrowLeft class="size-7" :stroke-width="2.5" aria-hidden="true" />
+          </button>
+          <button
+            type="button"
+            class="absolute -right-16 top-1/2 z-20 hidden size-12 -translate-y-1/2 touch-manipulation cursor-pointer items-center justify-center border-2 border-[#111111] bg-[#e8ff3f] text-[#111111] [box-shadow:4px_4px_0_#111111] transition-[background-color,color,box-shadow,transform] duration-160 hover:bg-[#111111] hover:text-[#e8ff3f] active:[box-shadow:none] active:-translate-x-0.5 active:translate-y-[calc(-50%+2px)] focus-visible:outline-4 focus-visible:outline-offset-[3px] focus-visible:outline-blue-600 motion-reduce:transition-none lg:inline-flex"
+            :aria-label="`Next project: ${nextPortfolio?.title}`"
+            @click="navigatePortfolio(1)"
+          >
+            <ArrowRight class="size-7" :stroke-width="2.5" aria-hidden="true" />
+          </button>
 
-          <picture v-if="resolvePortfolioImage(selectedPortfolio.image, 'modal').src" class="block w-full">
-            <source
-              v-for="source in resolvePortfolioImage(selectedPortfolio.image, 'modal').sources ?? []"
-              :key="source.type"
-              :type="source.type"
-              :srcset="source.srcset"
-              sizes="min(1152px, calc(100vw - 2rem))"
-            />
-            <img
-              class="block aspect-3/2 w-full border-b-2 border-[#111111] bg-[#111111] object-contain"
-              :src="resolvePortfolioImage(selectedPortfolio.image, 'modal').src"
-              :srcset="resolvePortfolioImage(selectedPortfolio.image, 'modal').srcset"
-              sizes="min(1152px, calc(100vw - 2rem))"
-              :width="resolvePortfolioImage(selectedPortfolio.image, 'modal').width"
-              :height="resolvePortfolioImage(selectedPortfolio.image, 'modal').height"
-              :alt="selectedPortfolio.imageAlt"
-              decoding="async"
-            />
-          </picture>
+          <p class="sr-only" aria-live="polite" aria-atomic="true">{{ portfolioAnnouncement }}</p>
 
-          <div class="p-[clamp(1.25rem,4vw,3rem)]" :class="{ 'pt-20': !resolvePortfolioImage(selectedPortfolio.image, 'modal').src }">
-            <p class="font-mono text-[0.72rem] font-extrabold uppercase leading-[1.55] tracking-widest text-[#c53a18]">{{ selectedPortfolio.company }} · {{ selectedPortfolio.category }}</p>
-            <DialogTitle as="h2" class="mt-3 max-w-4xl font-['Archivo',ui-sans-serif,system-ui,sans-serif] text-[clamp(2rem,6vw,5rem)] font-black uppercase leading-[0.9] tracking-[-0.055em]">
-              {{ selectedPortfolio.title }}
-            </DialogTitle>
+          <div class="relative max-h-[calc(100dvh-2rem)] overflow-y-auto overscroll-contain border-2 border-[#111111] bg-[#F2ECE1] [box-shadow:8px_8px_0_#111111] md:max-h-[calc(100dvh-3rem)]">
+            <DialogClose class="absolute right-3 top-3 z-10 inline-flex size-12 touch-manipulation cursor-pointer items-center justify-center border-2 border-[#111111] bg-[#e8ff3f] text-[#111111] [box-shadow:4px_4px_0_#111111] transition-[background-color,color,box-shadow,transform] duration-160 hover:bg-[#111111] hover:text-[#e8ff3f] active:[box-shadow:none] active:transform-[translate(3px,3px)] focus-visible:outline-4 focus-visible:outline-offset-[3px] focus-visible:outline-blue-600 motion-reduce:duration-[0.01ms]" aria-label="Close project details">
+              <X class="size-6" :stroke-width="2.5" aria-hidden="true" />
+            </DialogClose>
 
-            <div class="mt-6 grid gap-2 border-y-2 border-[#111111] py-4 font-mono text-[0.72rem] font-extrabold uppercase leading-[1.55] tracking-[0.06em] sm:grid-cols-2">
-              <p>{{ selectedPortfolio.role }}</p>
-              <p v-if="selectedPortfolio.period" class="sm:text-right">{{ selectedPortfolio.period }}</p>
-            </div>
+            <picture v-if="resolvePortfolioImage(selectedPortfolio.image, 'modal').src" class="block w-full">
+              <source
+                v-for="source in resolvePortfolioImage(selectedPortfolio.image, 'modal').sources ?? []"
+                :key="source.type"
+                :type="source.type"
+                :srcset="source.srcset"
+                :sizes="`min(${modalMaxWidth}, calc(100vw - 2rem))`"
+              />
+              <img
+                class="block aspect-3/2 w-full border-b-2 border-[#111111] bg-[#111111] object-contain"
+                :src="resolvePortfolioImage(selectedPortfolio.image, 'modal').src"
+                :srcset="resolvePortfolioImage(selectedPortfolio.image, 'modal').srcset"
+                :sizes="`min(${modalMaxWidth}, calc(100vw - 2rem))`"
+                :width="resolvePortfolioImage(selectedPortfolio.image, 'modal').width"
+                :height="resolvePortfolioImage(selectedPortfolio.image, 'modal').height"
+                :alt="selectedPortfolio.imageAlt"
+                decoding="async"
+              />
+            </picture>
 
-            <DialogDescription as="p" class="mt-7 max-w-[75ch] text-[clamp(1rem,2vw,1.15rem)] leading-[1.75] text-[#3f3d38]">
-              {{ selectedPortfolio.description }}
-            </DialogDescription>
+            <div class="p-[clamp(1.25rem,4vw,3rem)]" :class="{ 'pt-20': !resolvePortfolioImage(selectedPortfolio.image, 'modal').src }">
+              <p class="font-mono text-[0.72rem] font-extrabold uppercase leading-[1.55] tracking-widest text-[#c53a18]">{{ selectedPortfolio.company }} · {{ selectedPortfolio.category }}</p>
+              <DialogTitle as="h2" class="mt-3 max-w-4xl font-['Archivo',ui-sans-serif,system-ui,sans-serif] text-[clamp(2rem,6vw,5rem)] font-black uppercase leading-[0.9] tracking-[-0.055em]">
+                {{ selectedPortfolio.title }}
+              </DialogTitle>
 
-            <div v-if="selectedPortfolio.technologies.length" class="mt-8">
-              <h3 class="font-mono text-[0.7rem] font-extrabold uppercase tracking-[0.12em]">Technology stack</h3>
-              <ul class="mt-3 flex list-none flex-wrap gap-2">
-                <li v-for="technology in selectedPortfolio.technologies" :key="technology" class="border-2 border-[#111111] bg-white px-3 py-2 font-mono text-[0.7rem] font-extrabold uppercase tracking-[0.04em] [box-shadow:3px_3px_0_#e8ff3f]">
-                  {{ technology }}
-                </li>
-              </ul>
+              <div class="mt-6 grid gap-2 border-y-2 border-[#111111] py-4 font-mono text-[0.72rem] font-extrabold uppercase leading-[1.55] tracking-[0.06em] sm:grid-cols-2">
+                <p>{{ selectedPortfolio.role }}</p>
+                <p v-if="selectedPortfolio.period" class="sm:text-right">{{ selectedPortfolio.period }}</p>
+              </div>
+
+              <DialogDescription as="p" class="mt-7 max-w-[75ch] text-[clamp(1rem,2vw,1.15rem)] leading-[1.75] text-[#3f3d38]">
+                {{ selectedPortfolio.description }}
+              </DialogDescription>
+
+              <div v-if="selectedPortfolio.technologies.length" class="mt-8">
+                <h3 class="font-mono text-[0.7rem] font-extrabold uppercase tracking-[0.12em]">Technology stack</h3>
+                <ul class="mt-3 flex list-none flex-wrap gap-2">
+                  <li v-for="technology in selectedPortfolio.technologies" :key="technology" class="border-2 border-[#111111] bg-white px-3 py-2 font-mono text-[0.7rem] font-extrabold uppercase tracking-[0.04em] [box-shadow:3px_3px_0_#e8ff3f]">
+                    {{ technology }}
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </DialogContent>

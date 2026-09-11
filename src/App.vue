@@ -4,6 +4,7 @@ import AboutPanel from '@/components/AboutPanel.vue'
 import AmbientWaves from '@/components/AmbientWaves.vue'
 import ExperiencePanel from '@/components/ExperiencePanel.vue'
 import HeroSection from '@/components/HeroSection.vue'
+import MobileNavigation from '@/components/MobileNavigation.vue'
 import PortfolioPanel from '@/components/PortfolioPanel.vue'
 import ProfileOverview from '@/components/ProfileOverview.vue'
 import SectionTabs from '@/components/SectionTabs.vue'
@@ -32,6 +33,19 @@ const activeTab = ref(
 
 const contactHref = socialLinks.find((link) => link.icon === 'whatsapp').href
 
+const selectMobileTab = async (tabId) => {
+  const main = root.value?.querySelector('#main-content')
+
+  activeTab.value = tabId
+  if (!main) return
+
+  await nextTick()
+  main.scrollIntoView({
+    behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth',
+    block: 'start',
+  })
+}
+
 const viewWork = async () => {
   activeTab.value = 'work'
   await nextTick()
@@ -58,15 +72,19 @@ usePortfolioMotion(root, activeTab)
         <ProfileOverview :availability-modes="availabilityModes" :resume-link="resumeLink" :social-links="socialLinks" />
       </header>
 
-      <SectionTabs v-model="activeTab" :tabs="tabs" />
+      <div class="hidden md:block">
+        <SectionTabs v-model="activeTab" :tabs="tabs" />
+      </div>
 
-      <main id="main-content">
+      <main id="main-content" class="pb-[5.5rem] md:pb-0">
         <PortfolioPanel :active="activeTab === 'work'" :portfolios="portfolios" />
         <ServicesPanel :active="activeTab === 'services'" :services="services" />
         <ExperiencePanel :active="activeTab === 'experience'" :experiences="experiences" />
         <SkillsPanel :active="activeTab === 'skills'" :skills="skills" />
         <AboutPanel :active="activeTab === 'about'" :certifications="certifications" :education="education" :languages="languages" />
       </main>
+
+      <MobileNavigation :model-value="activeTab" :tabs="tabs" @update:model-value="selectMobileTab" />
     </div>
   </div>
 </template>

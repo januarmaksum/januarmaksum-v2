@@ -9,10 +9,6 @@ const services = ['Business Websites', 'Web & Mobile Apps', 'UI/UX Design']
 
 <template>
   <div data-motion="hero-copy" class="relative z-3 w-full min-w-0 px-[clamp(1.25rem,6vw,5rem)] py-[clamp(2.25rem,7vw,5.5rem)] md:w-3/5 md:px-[clamp(2.5rem,6vw,5rem)] md:py-[clamp(3rem,7vw,5.5rem)]">
-    <p class="mb-[clamp(1.25rem,4vw,2rem)] flex items-center gap-3 font-mono text-[clamp(0.72rem,2.8vw,0.9rem)] font-extrabold uppercase leading-[1.2] tracking-[0.14em] text-[#c53a18]">
-      <span class="text-[1.15em] tracking-[0.08em] text-[#111111]" aria-hidden="true">//</span>
-      Open to opportunities
-    </p>
     <h1 id="hero-title" class="font-['Archivo',ui-sans-serif,system-ui,sans-serif] text-[clamp(2rem,8.5vw,4rem)] font-black leading-[1.05] tracking-[-0.065em] md:text-[clamp(2.25rem,4.8vw,3.5rem)]">
       <span class="block text-balance">Delivering</span>
       <span class="block text-balance text-[#c53a18] [text-shadow:3px_3px_0_#e8ff3f]">Digital Solutions</span>
