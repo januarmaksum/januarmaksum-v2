@@ -1,6 +1,6 @@
 <script setup>
 import { computed, nextTick, onBeforeUnmount, ref } from 'vue'
-import { ArrowLeft, ArrowRight } from '@lucide/vue'
+import { ArrowLeft, ArrowRight, SquareArrowOutUpRight } from '@lucide/vue'
 import { gsap } from 'gsap'
 import { Flip } from 'gsap/Flip'
 import {
@@ -374,9 +374,23 @@ onBeforeUnmount(() => {
 
             <div class="p-[clamp(1.25rem,4vw,3rem)] pb-[max(1.25rem,env(safe-area-inset-bottom))] md:p-[clamp(1.25rem,4vw,3rem)]" :class="{ 'pt-20': !resolvePortfolioImage(selectedPortfolio.image, 'modal').src }">
               <p class="font-mono text-[0.72rem] font-extrabold uppercase leading-[1.55] tracking-widest text-[#c53a18]">{{ selectedPortfolio.company }} · {{ selectedPortfolio.category }}</p>
-              <DialogTitle as="h2" class="mt-3 max-w-4xl font-['Archivo',ui-sans-serif,system-ui,sans-serif] text-[clamp(2rem,6vw,5rem)] font-black uppercase leading-[0.9] tracking-[-0.055em]">
-                {{ selectedPortfolio.title }}
-              </DialogTitle>
+              <div class="relative mt-3 pr-14">
+                <DialogTitle as="h2" class="max-w-4xl font-['Archivo',ui-sans-serif,system-ui,sans-serif] text-[clamp(2rem,6vw,5rem)] font-black uppercase leading-[0.9] tracking-[-0.055em]">
+                  {{ selectedPortfolio.title }}
+                </DialogTitle>
+                <a
+                  v-if="selectedPortfolio.domain"
+                  :href="selectedPortfolio.domain"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="group absolute right-0 top-0 inline-flex size-11 touch-manipulation cursor-pointer items-start justify-end focus-visible:outline-4 focus-visible:outline-offset-[3px] focus-visible:outline-blue-600"
+                  :aria-label="`Visit ${selectedPortfolio.title} website in a new tab`"
+                >
+                  <span class="inline-flex size-6 items-center justify-center border-2 border-[#111111] bg-[#e8ff3f] text-[#111111] [box-shadow:3px_3px_0_#111111] transition-[background-color,color,box-shadow,transform] duration-160 group-hover:bg-[#111111] group-hover:text-[#e8ff3f] group-active:translate-x-0.5 group-active:translate-y-0.5 group-active:[box-shadow:none] motion-reduce:transition-none md:size-11">
+                    <SquareArrowOutUpRight class="size-3.5 md:size-4" :stroke-width="2.5" aria-hidden="true" />
+                  </span>
+                </a>
+              </div>
 
               <div class="mt-6 grid gap-2 border-y-2 border-[#111111] py-4 font-mono text-[0.72rem] font-extrabold uppercase leading-[1.55] tracking-[0.06em] sm:grid-cols-2">
                 <p>{{ selectedPortfolio.role }}</p>

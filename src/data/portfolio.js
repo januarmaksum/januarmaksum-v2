@@ -412,6 +412,7 @@ export const experiences = [
     location: 'Jakarta, Indonesia | Hybrid',
     summary: 'Built and maintained Ajaib Terminal, a cross-platform desktop stock trading application for Windows, macOS and Web.',
     technologies: 'Tauri, TypeScript, Vite, React, Zustand, TanStack Query, WebSocket, Tailwind, AppsFlyer, Mixpanel',
+    domain: 'https://ajaib.co.id/terminal',
     portfolio: {
       id: 'ajaib-terminal',
       title: 'Ajaib Terminal',
@@ -428,6 +429,7 @@ export const experiences = [
     location: 'Jakarta, Indonesia | On-site',
     summary: 'Built the WebView-based AgenBRILink Ambilin cash pickup service.',
     technologies: 'TypeScript, React, Next.js, Zustand, Elasticsearch, Redis, Tailwind, Framer Motion',
+    domain: 'https://bri.co.id/web/guest/tentang-brilink',
     portfolio: {
       id: 'agenbrilink-ambilin',
       title: 'AgenBRILink Ambilin',
@@ -444,6 +446,7 @@ export const experiences = [
     location: 'Jakarta, Indonesia | On-site',
     summary: 'Built and maintained internal hospital information system applications with medical staff and internal teams.',
     technologies: 'JavaScript, Angular, React, Zustand, jQuery, Tailwind',
+    domain: 'https://rsabhk.co.id',
     portfolio: {
       id: 'rs-harapan-kita',
       title: 'Hospital Harapan Kita',
@@ -460,6 +463,7 @@ export const experiences = [
     location: 'Jakarta, Indonesia | Hybrid',
     summary: 'Built a Talent Pool Dashboard for candidate status, hiring workflows, and onboarding.',
     technologies: 'TypeScript, React, Next.js, Redux, Tailwind, MoEngage',
+    domain: 'https://pintarnya.com',
     portfolio: {
       id: 'pintarnya-employer-dashboard',
       title: 'Pintarnya Employer Dashboard',
@@ -476,6 +480,7 @@ export const experiences = [
     location: 'Jakarta, Indonesia | Hybrid',
     summary: 'Built a doctor booking flow for patients to book appointments with doctors and hospitals.',
     technologies: 'JavaScript, Polymer.js, jQuery, A/B Testing, Google Analytics',
+    domain: 'https://www.alodokter.com',
     portfolio: {
       id: 'alodokter',
       title: 'Alodokter',
@@ -493,6 +498,7 @@ export const experiences = [
     location: 'Jakarta, Indonesia | On-site',
     summary: "Built responsive features for Indonetwork's B2B marketplace across desktop and mobile, along with client company profile sites and product catalogs.",
     technologies: 'JavaScript, jQuery, Vue, WordPress, Bootstrap, Sass',
+    domain: 'https://www.indonetwork.co.id',
     portfolio: {
       id: 'indonetwork',
       title: 'Indonetwork',
@@ -510,6 +516,7 @@ export const experiences = [
     location: 'Jakarta, Indonesia | On-site',
     summary: "Designed and built responsive production pages for Indotrading's B2B marketplace and built custom landing pages for various clients.",
     technologies: 'JavaScript, jQuery, HTML, CSS, Bootstrap, Photoshop',
+    domain: 'https://www.indotrading.com',
     portfolio: {
       id: 'indotrading',
       title: 'Indotrading',
@@ -524,11 +531,12 @@ export const experiences = [
 
 const experiencePortfolios = experiences
   .filter((experience) => experience.portfolio)
-  .map(({ company, date, role, summary, technologies: experienceTechnologies, portfolio }) => ({
+  .map(({ company, date, role, summary, technologies: experienceTechnologies, domain, portfolio }) => ({
     ...portfolio,
     company,
     role,
     period: date,
+    domain,
     description: portfolio.description ?? summary,
     technologies: experienceTechnologies.split(', '),
   }))
@@ -543,6 +551,7 @@ const additionalPortfolios = [
     filters: [],
     role: 'Freelance - Web Development',
     period: 'Nov 2025',
+    domain: 'https://gncshoot.com',
     description: 'GNC Shoot is a South Tangerang photography studio focused on cinematic identity portraits that tell a personal story.',
     technologies: ['Wordpress', 'Bootstrap', 'PHP'],
     image: gncShootImage,
@@ -556,6 +565,7 @@ const additionalPortfolios = [
     filters: [],
     role: 'Freelance - Web Development',
     period: 'Apr 2022',
+    domain: 'https://safetyfirstapparel.id',
     description: 'A product catalog website for Safety First Apparel, featuring workplace safety equipment, product categories, and supplier contact information.',
     technologies: ['Wordpress', 'Bootstrap', 'PHP'],
     image: safetyFirstApparelImage,
@@ -569,6 +579,7 @@ const additionalPortfolios = [
     filters: [],
     role: 'Freelance - Web Development',
     period: 'Jan 2021',
+    domain: 'https://phloxyemerald.com',
     description: 'A company profile website for PT Phloxy Emerald Sinergi, presenting its business licensing and document administration services and contact information.',
     technologies: ['Wordpress', 'Bootstrap', 'PHP'],
     image: phloxyEmeraldImage,
@@ -582,6 +593,7 @@ const additionalPortfolios = [
     filters: [],
     role: 'Freelance - Web Development',
     period: 'Sep 2020',
+    domain: 'https://sigtech.co.id',
     description: 'A company website and product catalog for PT. Selaras Inti Gemilang (SIGTECH), featuring bridge bearings, expansion joints, and product information.',
     technologies: ['PHP', 'Bootstrap', 'Wordpress'],
     image: sigtechImage,
@@ -595,6 +607,7 @@ const additionalPortfolios = [
     filters: [],
     role: 'Freelance - Web Development',
     period: 'Sep 2018',
+    domain: 'https://butterflyvacation.com',
     description: 'A travel website for Butterflies (Pvt) Ltd, presenting Sri Lanka tour arrangements, private and group holidays, accommodation, transport, sightseeing, and special events.',
     technologies: ['Wordpress', 'Bootstrap', 'PHP'],
     image: butterflyVacationImage,
@@ -608,6 +621,7 @@ const additionalPortfolios = [
     filters: [],
     role: 'Freelance - Web Development',
     period: 'Des 2020',
+    domain: 'https://aprdi.or.id',
     description: 'An association website for Dewan APRDI, presenting professional training, investment education, association information, and member organizations.',
     technologies: ['Wordpress', 'PHP'],
     image: aprdiImage,
@@ -621,6 +635,7 @@ const additionalPortfolios = [
     filters: [],
     role: 'Freelance - Web Development',
     period: 'Aug 2018',
+    domain: 'https://gesundheit.jobs',
     description: 'A German healthcare job portal featuring job search, current vacancies, occupational categories, regional opportunities, and employer information.',
     technologies: ['Bootstrap', 'JQuery', 'PHP', 'MySQL', 'SEO Optimization'],
     image: gesundheitImage,
