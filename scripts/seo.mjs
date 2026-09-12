@@ -64,7 +64,6 @@ export const renderHeadTags = (config) => {
     meta('name', 'description', config.description),
     meta('name', 'robots', config.robots),
     meta('name', 'theme-color', '#080808'),
-    meta('name', 'color-scheme', 'dark'),
     '<link rel="icon" type="image/png" href="/favicon.png" />',
     '<link rel="apple-touch-icon" href="/favicon.png" />',
   ]
