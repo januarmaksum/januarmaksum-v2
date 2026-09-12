@@ -1,5 +1,4 @@
 import aprdiThumbnail520Avif from '@/assets/portfolio/aprdi/aprdi-thumbnail-520.avif'
-import resumePdf from '@/assets/resume-januarmaksum.pdf'
 import gesundheit520Avif from '@/assets/portfolio/gesundheit/gesundheit-thumbnail-520.avif'
 import gesundheit1040Avif from '@/assets/portfolio/gesundheit/gesundheit-thumbnail-1040.avif'
 import gesundheit1536Avif from '@/assets/portfolio/gesundheit/gesundheit-thumbnail-1536.avif'
@@ -454,7 +453,7 @@ export const socialLinks = [
   { label: 'GitHub', href: 'https://github.com/januarmaksum', icon: 'github', external: true },
 ]
 
-export const resumeLink = { label: 'Download Resume', href: resumePdf, icon: 'file-lines', external: true }
+export const resumeLink = { label: 'Download CV', href: '/resume-januarmaksum.pdf', icon: 'file-lines', external: true }
 
 export const experiences = [
   {
