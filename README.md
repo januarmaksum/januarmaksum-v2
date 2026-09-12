@@ -1,5 +1,11 @@
-# Vue 3 + Vite
+# Januar Maksum Portfolio
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+A Vue and Vite portfolio for Januar Maksum, Frontend Engineer.
 
-Learn more about IDE Support for Vue in the [Vue Docs Scaling up Guide](https://vuejs.org/guide/scaling-up/tooling.html#ide-support).
+## Deploying to Vercel
+
+Set `SITE_URL` in **Vercel → Project Settings → Environment Variables** for the **Production** environment. Its value must be the final HTTPS origin only, for example `https://your-project.vercel.app` (no trailing path, query, or hash).
+
+Production builds require `SITE_URL` and generate indexable metadata, `/robots.txt`, and `/sitemap.xml`. Preview deployments and local builds are deliberately `noindex` and have no production canonical URL or sitemap.
+
+After deploying, inspect the rendered page source and confirm that canonical, Open Graph, Twitter Card, and JSON-LD URLs use the production domain. Refresh social previews with LinkedIn Post Inspector or Facebook Sharing Debugger after the public URL is available.
