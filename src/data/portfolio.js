@@ -12,6 +12,12 @@ import bankBsiThumbnail1536Avif from '@/assets/portfolio/bank-bsi/bank-bsi-thumb
 import bankBsiThumbnail520Webp from '@/assets/portfolio/bank-bsi/bank-bsi-thumbnail-520.webp'
 import bankBsiThumbnail1040Webp from '@/assets/portfolio/bank-bsi/bank-bsi-thumbnail-1040.webp'
 import bankBsiThumbnail1536Webp from '@/assets/portfolio/bank-bsi/bank-bsi-thumbnail-1536.webp'
+import rsabhkRandomNameThumbnail520Avif from '@/assets/portfolio/rsabhk-random-name/rsabhk-random-name-thumbnail-520.avif'
+import rsabhkRandomNameThumbnail1040Avif from '@/assets/portfolio/rsabhk-random-name/rsabhk-random-name-thumbnail-1040.avif'
+import rsabhkRandomNameThumbnail1536Avif from '@/assets/portfolio/rsabhk-random-name/rsabhk-random-name-thumbnail-1536.avif'
+import rsabhkRandomNameThumbnail520Webp from '@/assets/portfolio/rsabhk-random-name/rsabhk-random-name-thumbnail-520.webp'
+import rsabhkRandomNameThumbnail1040Webp from '@/assets/portfolio/rsabhk-random-name/rsabhk-random-name-thumbnail-1040.webp'
+import rsabhkRandomNameThumbnail1536Webp from '@/assets/portfolio/rsabhk-random-name/rsabhk-random-name-thumbnail-1536.webp'
 import aprdiThumbnail1040Avif from '@/assets/portfolio/aprdi/aprdi-thumbnail-1040.avif'
 import aprdiThumbnail1536Avif from '@/assets/portfolio/aprdi/aprdi-thumbnail-1536.avif'
 import aprdiThumbnail520Webp from '@/assets/portfolio/aprdi/aprdi-thumbnail-520.webp'
@@ -385,6 +391,17 @@ const bankBsiImage = {
   height: 1024,
 }
 
+const rsabhkRandomNameImage = {
+  sources: [{
+    type: 'image/avif',
+    srcset: `${rsabhkRandomNameThumbnail520Avif} 520w, ${rsabhkRandomNameThumbnail1040Avif} 1040w, ${rsabhkRandomNameThumbnail1536Avif} 1536w`,
+  }],
+  src: rsabhkRandomNameThumbnail1536Webp,
+  srcset: `${rsabhkRandomNameThumbnail520Webp} 520w, ${rsabhkRandomNameThumbnail1040Webp} 1040w, ${rsabhkRandomNameThumbnail1536Webp} 1536w`,
+  width: 1536,
+  height: 1024,
+}
+
 export const technologies = [
   { name: 'JavaScript', icon: 'javascript', classes: '-rotate-2 shadow-[4px_4px_0_#ff5c35]' },
   { name: 'TypeScript', icon: 'typescript', classes: 'rotate-2 text-[#3178c6] shadow-[4px_4px_0_#e8ff3f]' },
@@ -641,6 +658,20 @@ const additionalPortfolios = [
     technologies: ['Bootstrap', 'JQuery', 'PHP', 'MySQL', 'SEO Optimization'],
     image: gesundheitImage,
     imageAlt: 'GESUNDHEIT JOBS healthcare job search homepage displayed in a browser mockup against a blue green gradient background',
+  },
+  {
+    id: 'rsabhk-random-name-picker',
+    title: 'Doorprize Random Name Picker',
+    company: 'Hospital Anak dan Bunda Harapan Kita',
+    category: 'Web app',
+    filters: ['react'],
+    role: 'Frontend Web Developer',
+    period: 'Des 2023',
+    domain: 'https://github.com/januarmaksum/react-random-name-picker',
+    description: 'A web application for randomly selecting door-prize winners for the 44th anniversary celebration of Hospital Anak dan Bunda Harapan Kita.',
+    technologies: ['React', 'Vite', 'Tailwind CSS'],
+    image: rsabhkRandomNameImage,
+    imageAlt: 'Doorprize Random Name Picker door-prize winner selection interface for the 44th anniversary celebration of Hospital Anak dan Bunda Harapan Kita',
   },
 ]
 
