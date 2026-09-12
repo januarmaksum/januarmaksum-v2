@@ -46,7 +46,7 @@ defineProps({
             </span>
           </div>
         </div>
-        <div class="hidden">
+        <div class="mt-4 flex flex-wrap items-center gap-2 font-mono text-xs font-semibold uppercase tracking-wide text-white/65">
           <span>Based in Jakarta, Indonesia</span>
         </div>
       </div>

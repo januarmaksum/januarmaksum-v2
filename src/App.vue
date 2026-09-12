@@ -76,7 +76,7 @@ usePortfolioMotion(root, activeTab)
         <SectionTabs v-model="activeTab" :tabs="tabs" />
       </div>
 
-      <main id="main-content" class="pb-22 md:pb-0">
+      <main id="main-content">
         <PortfolioPanel :active="activeTab === 'work'" :portfolios="portfolios" />
         <ServicesPanel :active="activeTab === 'services'" :services="services" />
         <ExperiencePanel :active="activeTab === 'experience'" :experiences="experiences" />

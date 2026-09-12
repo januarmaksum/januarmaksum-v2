@@ -434,7 +434,7 @@ export const experiences = [
     portfolio: {
       id: 'agenbrilink-ambilin',
       title: 'AgenBRILink Ambilin',
-      category: 'WebView cash pickup',
+      category: 'Cash pickup',
       filters: ['react', 'nextjs', 'mobile'],
       image: ambilinCashPickupImage,
       imageAlt: 'Three overlapping AgenBRILink Ambilin cash-pickup screens on a white route-pattern background with both brand logos',

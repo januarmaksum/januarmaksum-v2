@@ -40,7 +40,7 @@ defineProps({
       <div class="mt-[clamp(2.5rem,6vw,4rem)] max-w-6xl">
         <div class="space-y-[clamp(2rem,5vw,3.5rem)] text-[clamp(1.125rem,2.15vw,1rem)] font-normal leading-[1.55] tracking-[-0.015em] text-[#343434]">
           <p>
-            I'm a <strong class="font-black text-[#111111]">frontend-focused full-stack developer</strong> with <strong class="font-black text-[#111111]">over 11 years of experience</strong> building products for stock trading, banking, healthcare, recruitment, doctor booking, and B2B marketplaces. I work mainly with React, Next.js, Vue, and TypeScript.
+            I'm a <strong class="font-black text-[#111111]">frontend-focused full-stack developer</strong> with <strong class="font-black text-[#111111]">over 11 years of experience</strong> building products for stock trading, banking, healthcare, recruitment, doctor booking, and B2B marketplaces.
           </p>
 
           <div class="grid grid-cols-[3rem_minmax(0,1fr)] items-start gap-4 sm:grid-cols-[4rem_minmax(0,1fr)] sm:gap-6">
