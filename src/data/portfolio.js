@@ -24,6 +24,12 @@ import pokemonAppThumbnail1536Avif from '@/assets/portfolio/pokemon/pokemon-app-
 import pokemonAppThumbnail520Webp from '@/assets/portfolio/pokemon/pokemon-app-thumbnail-520.webp'
 import pokemonAppThumbnail1040Webp from '@/assets/portfolio/pokemon/pokemon-app-thumbnail-1040.webp'
 import pokemonAppThumbnail1536Webp from '@/assets/portfolio/pokemon/pokemon-app-thumbnail-1536.webp'
+import januarMaksumV1Thumbnail520Avif from '@/assets/portfolio/januarmaksum-v1/januarmaksum-v1-thumbnail-520.avif'
+import januarMaksumV1Thumbnail1040Avif from '@/assets/portfolio/januarmaksum-v1/januarmaksum-v1-thumbnail-1040.avif'
+import januarMaksumV1Thumbnail1536Avif from '@/assets/portfolio/januarmaksum-v1/januarmaksum-v1-thumbnail-1536.avif'
+import januarMaksumV1Thumbnail520Webp from '@/assets/portfolio/januarmaksum-v1/januarmaksum-v1-thumbnail-520.webp'
+import januarMaksumV1Thumbnail1040Webp from '@/assets/portfolio/januarmaksum-v1/januarmaksum-v1-thumbnail-1040.webp'
+import januarMaksumV1Thumbnail1536Webp from '@/assets/portfolio/januarmaksum-v1/januarmaksum-v1-thumbnail-1536.webp'
 import aprdiThumbnail1040Avif from '@/assets/portfolio/aprdi/aprdi-thumbnail-1040.avif'
 import aprdiThumbnail1536Avif from '@/assets/portfolio/aprdi/aprdi-thumbnail-1536.avif'
 import aprdiThumbnail520Webp from '@/assets/portfolio/aprdi/aprdi-thumbnail-520.webp'
@@ -419,6 +425,17 @@ const pokemonAppImage = {
   height: 1024,
 }
 
+const januarMaksumV1Image = {
+  sources: [{
+    type: 'image/avif',
+    srcset: `${januarMaksumV1Thumbnail520Avif} 520w, ${januarMaksumV1Thumbnail1040Avif} 1040w, ${januarMaksumV1Thumbnail1536Avif} 1536w`,
+  }],
+  src: januarMaksumV1Thumbnail1536Webp,
+  srcset: `${januarMaksumV1Thumbnail520Webp} 520w, ${januarMaksumV1Thumbnail1040Webp} 1040w, ${januarMaksumV1Thumbnail1536Webp} 1536w`,
+  width: 1536,
+  height: 1024,
+}
+
 export const technologies = [
   { name: 'JavaScript', icon: 'javascript', classes: '-rotate-2 shadow-[4px_4px_0_#ff5c35]' },
   { name: 'TypeScript', icon: 'typescript', classes: 'rotate-2 text-[#3178c6] shadow-[4px_4px_0_#e8ff3f]' },
@@ -678,7 +695,7 @@ const additionalPortfolios = [
   },
   {
     id: 'rsabhk-random-name-picker',
-    title: 'Doorprize Random Name Picker',
+    title: 'Doorprize app',
     company: 'Hospital Anak dan Bunda Harapan Kita',
     category: 'Web app',
     filters: ['react'],
@@ -704,6 +721,20 @@ const additionalPortfolios = [
     technologies: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'React Query', 'PokéAPI'],
     image: pokemonAppImage,
     imageAlt: 'Pokémon App showing Pokémon browse and detail views with Bulbasaur, stats, moves, and catch controls in a dark interface',
+  },
+  {
+    id: 'januarmaksum-v1',
+    title: 'Januar Maksum v1',
+    company: 'Januar Maksum',
+    category: 'Personal portfolio site',
+    filters: ['react'],
+    role: 'Personal Project',
+    period: 'Apr 2024',
+    domain: 'https://januarmaksum-v1.vercel.app',
+    description: 'An earlier version of my personal portfolio website, presenting my profile, experience, projects, skills, and contact details.',
+    technologies: ['React', 'Vite', 'Tailwind CSS', 'React Router'],
+    image: januarMaksumV1Image,
+    imageAlt: 'Januar Maksum v1 personal portfolio website showing profile, navigation, experience, and skills in a dark purple interface',
   },
 ]
 
