@@ -18,6 +18,12 @@ import rsabhkRandomNameThumbnail1536Avif from '@/assets/portfolio/rsabhk-random-
 import rsabhkRandomNameThumbnail520Webp from '@/assets/portfolio/rsabhk-random-name/rsabhk-random-name-thumbnail-520.webp'
 import rsabhkRandomNameThumbnail1040Webp from '@/assets/portfolio/rsabhk-random-name/rsabhk-random-name-thumbnail-1040.webp'
 import rsabhkRandomNameThumbnail1536Webp from '@/assets/portfolio/rsabhk-random-name/rsabhk-random-name-thumbnail-1536.webp'
+import pokemonAppThumbnail520Avif from '@/assets/portfolio/pokemon/pokemon-app-thumbnail-520.avif'
+import pokemonAppThumbnail1040Avif from '@/assets/portfolio/pokemon/pokemon-app-thumbnail-1040.avif'
+import pokemonAppThumbnail1536Avif from '@/assets/portfolio/pokemon/pokemon-app-thumbnail-1536.avif'
+import pokemonAppThumbnail520Webp from '@/assets/portfolio/pokemon/pokemon-app-thumbnail-520.webp'
+import pokemonAppThumbnail1040Webp from '@/assets/portfolio/pokemon/pokemon-app-thumbnail-1040.webp'
+import pokemonAppThumbnail1536Webp from '@/assets/portfolio/pokemon/pokemon-app-thumbnail-1536.webp'
 import aprdiThumbnail1040Avif from '@/assets/portfolio/aprdi/aprdi-thumbnail-1040.avif'
 import aprdiThumbnail1536Avif from '@/assets/portfolio/aprdi/aprdi-thumbnail-1536.avif'
 import aprdiThumbnail520Webp from '@/assets/portfolio/aprdi/aprdi-thumbnail-520.webp'
@@ -402,6 +408,17 @@ const rsabhkRandomNameImage = {
   height: 1024,
 }
 
+const pokemonAppImage = {
+  sources: [{
+    type: 'image/avif',
+    srcset: `${pokemonAppThumbnail520Avif} 520w, ${pokemonAppThumbnail1040Avif} 1040w, ${pokemonAppThumbnail1536Avif} 1536w`,
+  }],
+  src: pokemonAppThumbnail1536Webp,
+  srcset: `${pokemonAppThumbnail520Webp} 520w, ${pokemonAppThumbnail1040Webp} 1040w, ${pokemonAppThumbnail1536Webp} 1536w`,
+  width: 1536,
+  height: 1024,
+}
+
 export const technologies = [
   { name: 'JavaScript', icon: 'javascript', classes: '-rotate-2 shadow-[4px_4px_0_#ff5c35]' },
   { name: 'TypeScript', icon: 'typescript', classes: 'rotate-2 text-[#3178c6] shadow-[4px_4px_0_#e8ff3f]' },
@@ -665,13 +682,28 @@ const additionalPortfolios = [
     company: 'Hospital Anak dan Bunda Harapan Kita',
     category: 'Web app',
     filters: ['react'],
-    role: 'Frontend Web Developer',
+    role: 'Web Application',
     period: 'Des 2023',
     domain: 'https://github.com/januarmaksum/react-random-name-picker',
     description: 'A web application for randomly selecting door-prize winners for the 44th anniversary celebration of Hospital Anak dan Bunda Harapan Kita.',
     technologies: ['React', 'Vite', 'Tailwind CSS'],
     image: rsabhkRandomNameImage,
     imageAlt: 'Doorprize Random Name Picker door-prize winner selection interface for the 44th anniversary celebration of Hospital Anak dan Bunda Harapan Kita',
+  },
+  {
+    id: 'pokemon-app',
+    title: 'Pokémon App',
+    company: 'Pokémon App',
+    category: 'Pokémon collection',
+    filters: ['react', 'nextjs'],
+    role: 'Personal Project',
+    period: 'Sep 2024',
+    domain: 'https://pokemon-app-gold-xi.vercel.app/',
+    repository: 'https://github.com/januarmaksum/pokemon-app',
+    description: 'A Pokémon collection app for browsing Pokémon details, catching Pokémon, assigning nicknames, and managing a personal collection saved locally.',
+    technologies: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'React Query', 'PokéAPI'],
+    image: pokemonAppImage,
+    imageAlt: 'Pokémon App showing Pokémon browse and detail views with Bulbasaur, stats, moves, and catch controls in a dark interface',
   },
 ]
 
