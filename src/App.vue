@@ -78,7 +78,7 @@ usePortfolioMotion(root, activeTab)
 
       <main id="main-content">
         <PortfolioPanel :active="activeTab === 'work'" :portfolios="portfolios" />
-        <ServicesPanel :active="activeTab === 'services'" :services="services" />
+        <ServicesPanel :active="activeTab === 'services'" :contact-href="contactHref" :services="services" />
         <ExperiencePanel :active="activeTab === 'experience'" :experiences="experiences" />
         <SkillsPanel :active="activeTab === 'skills'" :skills="skills" />
         <AboutPanel :active="activeTab === 'about'" :certifications="certifications" :education="education" :languages="languages" />

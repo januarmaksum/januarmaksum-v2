@@ -1,5 +1,7 @@
 <script setup>
-defineProps({ services: { type: Array, required: true }, active: Boolean })
+import { ArrowRight } from '@lucide/vue'
+
+defineProps({ contactHref: { type: String, required: true }, services: { type: Array, required: true }, active: Boolean })
 </script>
 
 <template>
@@ -15,5 +17,17 @@ defineProps({ services: { type: Array, required: true }, active: Boolean })
         <p class="mt-4 text-base leading-relaxed text-[#343434]">{{ service.description }}</p>
       </li>
     </ul>
+    <div class="mt-[clamp(2.5rem,6vw,4rem)] flex justify-center">
+      <a
+        :href="contactHref"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex min-h-12 items-center justify-center gap-2 border-2 border-[#111111] bg-[#e8ff3f] px-5 py-3 text-base font-extrabold text-[#111111] shadow-[4px_4px_0_#111111] transition-[background-color,box-shadow,transform] duration-150 hover:bg-[#ff5c35] hover:shadow-[2px_2px_0_#111111] hover:translate-x-0.5 hover:translate-y-0.5 active:translate-x-1 active:translate-y-1 active:shadow-none focus-visible:outline-4 focus-visible:outline-offset-4 focus-visible:outline-blue-600 motion-reduce:transition-none"
+        aria-label="Discuss your project on WhatsApp"
+      >
+        <span>Let’s discuss your project</span>
+        <ArrowRight class="size-5 shrink-0" :stroke-width="2.25" aria-hidden="true" />
+      </a>
+    </div>
   </section>
 </template>
